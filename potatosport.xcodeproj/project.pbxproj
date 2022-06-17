@@ -29,6 +29,7 @@
 		D994E76128538FF800AA5DD0 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D994E76028538FF800AA5DD0 /* FirebaseRemoteConfigSwift */; };
 		D994E76328538FF800AA5DD0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D994E76228538FF800AA5DD0 /* FirebaseStorage */; };
 		D994E76528538FF800AA5DD0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D994E76428538FF800AA5DD0 /* FirebaseStorageCombine-Community */; };
+		D99A21702855FC2D0015E5F1 /* gameRoomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99A216F2855FC2D0015E5F1 /* gameRoomObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D99372322852E7EB000D2397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D99372352852E7EB000D2397 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D994E74128538B0500AA5DD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D99A216F2855FC2D0015E5F1 /* gameRoomObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameRoomObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				D994E74128538B0500AA5DD0 /* GoogleService-Info.plist */,
 				D993722E2852E7E7000D2397 /* potatosportApp.swift */,
 				D99372302852E7E7000D2397 /* ContentView.swift */,
+				D99A216F2855FC2D0015E5F1 /* gameRoomObject.swift */,
 				D99372322852E7EB000D2397 /* Assets.xcassets */,
 				D99372342852E7EB000D2397 /* Preview Content */,
 			);
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99372312852E7E7000D2397 /* ContentView.swift in Sources */,
+				D99A21702855FC2D0015E5F1 /* gameRoomObject.swift in Sources */,
 				D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
