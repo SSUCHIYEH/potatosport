@@ -54,18 +54,23 @@ class RunActionViewController: UIViewController{
 
 extension RunActionViewController: PredictorDelegate {
     func predictor(_ predictor: RunPredictor, didLabelAction action: String, with confidence: Double) {
-        print(action)
+//        print(action)
+//        if action == "run" {
+//            isRunDetected = true
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                self.isRunDetected = false
+//            }
+//
+//            DispatchQueue.main.async {
+//                AudioServicesPlayAlertSound(SystemSoundID(1322))
+//            }
+//
+//        }
         if action == "run" {
-            isRunDetected = true
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.isRunDetected = false
-            }
-
-            DispatchQueue.main.async {
-                AudioServicesPlayAlertSound(SystemSoundID(1322))
-            }
-
+            print("run!!!!!!!!!!!!!")
+        }else{
+            print("none")
         }
     }
 
