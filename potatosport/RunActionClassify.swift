@@ -32,7 +32,6 @@ class RunActionViewController: UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        print("viewDidLoad")
         
         SetupVedioPreview()
         videoCapture.predictor.delegate = self
@@ -55,8 +54,8 @@ class RunActionViewController: UIViewController{
 
 extension RunActionViewController: PredictorDelegate {
     func predictor(_ predictor: RunPredictor, didLabelAction action: String, with confidence: Double) {
-        if action == "Run" && confidence > 0.95 && isRunDetected == false {
-            print("Run Detected")
+        print(action)
+        if action == "run" {
             isRunDetected = true
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

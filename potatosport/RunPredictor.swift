@@ -9,7 +9,7 @@ import Foundation
 import Vision
 import UIKit
 
-typealias RunningClassifier = runClassifier_2
+typealias RunningClassifier = MyActionClassifier_1
 
 protocol PredictorDelegate:AnyObject{
     func predictor(_ predictor: RunPredictor, didFindNewRecognizedPoints points:[CGPoint])
@@ -24,12 +24,10 @@ class RunPredictor {
     var poseWindow:[VNHumanBodyPoseObservation] = []
     
     init() {
-        print("predictor init")
         poseWindow.reserveCapacity(predictionWindowSize)
     }
     
     func bodyPoseHandler(request: VNRequest, error: Error?) {
-        print("in bodyPoseHandler")
         guard let observations =
                 request.results as? [VNHumanBodyPoseObservation] else {
             return
@@ -48,7 +46,6 @@ class RunPredictor {
 //        guard let cgImage = UIImage(named: "bodypose")?.cgImage else { return }
         let requestHandler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up)
         let request = VNDetectHumanBodyPoseRequest(completionHandler: bodyPoseHandler)
-        print(request)
         do {
             // Perform the body pose-detection request.
             try requestHandler.perform([request])
@@ -61,7 +58,7 @@ class RunPredictor {
     
     
     func labelActiontype(){
-        guard let throwingClassifier = try? runClassifier_2(configuration: MLModelConfiguration()),
+        guard let throwingClassifier = try? MyActionClassifier_1(configuration: MLModelConfiguration()),
               let poseMultiArray = prepareInputwithObservations(poseWindow),
               let predictions = try? throwingClassifier.prediction(poses: poseMultiArray) else {
             return
@@ -121,7 +118,6 @@ class RunPredictor {
     
     
     func processObservation(_ obsevation: VNHumanBodyPoseObservation) {
-        print("in processObservation")
         do{
             let recognizePoint = try obsevation.recognizedPoints(forGroupKey: .all)
             var disPlayedPoints = recognizePoint.map{

@@ -64,7 +64,6 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate{
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
 //        let videoData = sampleBuffer
 //        print(videoData)
-        print("portoco call estimation")
         predictor.estimation(sampleBuffer: sampleBuffer)
     }
     
