@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        RunActionDetectedView()
+        RunActionView()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RunActionView()
+        ContentView()
     }
 }
