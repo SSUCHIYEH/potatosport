@@ -21,16 +21,17 @@ struct ContentView: View {
     @EnvironmentObject var viewModel:AppAuthViewModel
     
     var body: some View {
-        NavigationView{
-            if viewModel.signedIn {
-                IndexView()
-            } else {
-                SignInView()
-            }
-        }.onAppear{
-            viewModel.signedIn = viewModel.isSignIn
-        }
+        RunActionView()
     }
+//    NavigationView{
+//        if viewModel.signedIn {
+//            IndexView()
+//        } else {
+//            SignInView()
+//        }
+//    }.onAppear{
+//        viewModel.signedIn = viewModel.isSignIn
+//    }
 }
 
 
