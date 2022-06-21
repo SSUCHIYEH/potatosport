@@ -22,20 +22,46 @@ struct ButtonView: View{
             ZStack(alignment: .center){
                 //陰影
                 RoundedRectangle(cornerRadius: 5)
-                    .fill(Color(#colorLiteral(red: 0.30588236451148987, green: 0.26274511218070984, blue: 0.38823530077934265, alpha: 1)))
+                    .fill(Color("dark"))
                     .frame(width:button.width, height: button.height)
                     .offset(x: 5, y: 5)
                 ZStack(alignment: .center){
                     //黃色button
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .fill(Color(#colorLiteral(red: 1, green: 0.940000057220459, blue: 0.3999999761581421, alpha: 1)))
+                            .fill(Color("yellow_main"))
                         RoundedRectangle(cornerRadius: 5)
-                            .strokeBorder(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), lineWidth: 4)
+                            .strokeBorder(Color("white"), lineWidth: 4)
                     }
                     .frame(width: button.width, height: button.height)
                     //文字
-                    Text(button.name).font(.custom("Noto Sans TC Bold", size: button.fontsize)).foregroundColor(Color(#colorLiteral(red: 0.24, green: 0.2, blue: 0.3, alpha: 1))).tracking(2).fontWeight(.black)
+                    Text(button.name).font(.custom("Noto Sans TC Bold", size: button.fontsize)).foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                }
+            }
+            
+        }
+    }
+}
+struct AddFriendBtnView: View{
+    var body: some View {
+        VStack{
+            ZStack(alignment: .center){
+                //陰影
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(Color("dark"))
+                    .frame(width:49, height: 49)
+                    .offset(x: 5, y: 5)
+                ZStack(alignment: .center){
+                    //黃色button
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 30)
+                            .fill(Color("yellow_main"))
+                        RoundedRectangle(cornerRadius: 30)
+                            .strokeBorder(Color("white"), lineWidth: 4)
+                    }
+                    .frame(width: 49, height: 49)
+                    //文字
+                    Text("+").font(.custom("Noto Sans TC Bold", size: 20)).foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
                 }
             }
             

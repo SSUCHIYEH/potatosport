@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */; };
+		6F3AAEE62861F2F300B16D73 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */; };
 		6FB225D92860D8D50026FAFB /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB225D82860D8D50026FAFB /* Components.swift */; };
 		6FDA7399285F70D700EA58C4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA7398285F70D700EA58C4 /* MainView.swift */; };
 		6FDA739C285F726B00EA58C4 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA739B285F726B00EA58C4 /* toy_robot_vintage.usdz */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "MyActionClassifier 1.mlmodel"; path = "../../../../../var/folders/tq/f1m49vrn27j1dwh72gj66_th0000gn/T/com.apple.dt.CreateML.app/sharing/drag/5265E06E-6325-4401-9ECA-8A99D3059433/MyActionClassifier 1.mlmodel"; sourceTree = "<group>"; };
+		6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		6FB225D82860D8D50026FAFB /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		6FDA7398285F70D700EA58C4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		6FDA739B285F726B00EA58C4 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				6FB225D82860D8D50026FAFB /* Components.swift */,
 				D99372322852E7EB000D2397 /* Assets.xcassets */,
 				D99372342852E7EB000D2397 /* Preview Content */,
+				6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */,
 			);
 			path = potatosport;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
 				6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */,
 				6FB225D92860D8D50026FAFB /* Components.swift in Sources */,
+				6F3AAEE62861F2F300B16D73 /* AddFriendView.swift in Sources */,
 				D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
