@@ -13,9 +13,10 @@
 		6F3AAEEA2862246D00B16D73 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE92862246D00B16D73 /* SelectModeView.swift */; };
 		6F3AAEEC286313B000B16D73 /* GameRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEEB286313B000B16D73 /* GameRunView.swift */; };
 		6F3AAEEF28632D9600B16D73 /* Game.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AAEEE28632D9600B16D73 /* Game.scn */; };
+		6F3AAEF2286331AC00B16D73 /* ballDiffuse.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AAEF0286331AB00B16D73 /* ballDiffuse.jpeg */; };
+		6F3AAEF3286331AC00B16D73 /* comicSkyBox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AAEF1286331AB00B16D73 /* comicSkyBox.jpeg */; };
 		6FB225D92860D8D50026FAFB /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB225D82860D8D50026FAFB /* Components.swift */; };
 		6FDA7399285F70D700EA58C4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA7398285F70D700EA58C4 /* MainView.swift */; };
-		6FDA739C285F726B00EA58C4 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA739B285F726B00EA58C4 /* toy_robot_vintage.usdz */; };
 		D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C620285C84F100A34263 /* RunActionClassify.swift */; };
 		D981C623285C86C700A34263 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C622285C86C700A34263 /* VideoCapture.swift */; };
 		D981C627285CBCD100A34263 /* RunPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C626285CBCD100A34263 /* RunPredictor.swift */; };
@@ -33,9 +34,10 @@
 		6F3AAEE92862246D00B16D73 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
 		6F3AAEEB286313B000B16D73 /* GameRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRunView.swift; sourceTree = "<group>"; };
 		6F3AAEEE28632D9600B16D73 /* Game.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Game.scn; sourceTree = "<group>"; };
+		6F3AAEF0286331AB00B16D73 /* ballDiffuse.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballDiffuse.jpeg; sourceTree = "<group>"; };
+		6F3AAEF1286331AB00B16D73 /* comicSkyBox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comicSkyBox.jpeg; sourceTree = "<group>"; };
 		6FB225D82860D8D50026FAFB /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		6FDA7398285F70D700EA58C4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; usesTabs = 0; };
-		6FDA739B285F726B00EA58C4 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
 		D981C620285C84F100A34263 /* RunActionClassify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActionClassify.swift; sourceTree = "<group>"; };
 		D981C622285C86C700A34263 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D981C626285CBCD100A34263 /* RunPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPredictor.swift; sourceTree = "<group>"; };
@@ -62,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				6F3AAEEE28632D9600B16D73 /* Game.scn */,
+				6F3AAEF0286331AB00B16D73 /* ballDiffuse.jpeg */,
+				6F3AAEF1286331AB00B16D73 /* comicSkyBox.jpeg */,
 			);
 			path = art.scnassets;
 			sourceTree = "<group>";
@@ -69,7 +73,6 @@
 		6FDA739A285F722200EA58C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6FDA739B285F726B00EA58C4 /* toy_robot_vintage.usdz */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,9 +184,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3AAEEF28632D9600B16D73 /* Game.scn in Resources */,
+				6F3AAEF3286331AC00B16D73 /* comicSkyBox.jpeg in Resources */,
+				6F3AAEF2286331AC00B16D73 /* ballDiffuse.jpeg in Resources */,
 				D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */,
 				D99372332852E7EB000D2397 /* Assets.xcassets in Resources */,
-				6FDA739C285F726B00EA58C4 /* toy_robot_vintage.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

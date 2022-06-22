@@ -8,31 +8,34 @@
 import SwiftUI
 import SceneKit
 
-struct GameRunView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> GameRunViewController {
-        GameRunViewController()
-    }
+var pos:Float = 3
 
-    func updateUIViewController(_ uiViewController: GameRunViewController, context: Context) {
-    }
-    typealias UIViewControllerType = GameRunViewController
-}
 
-class GameRunViewController: UIViewController{
-    override func viewDidLoad() {
-        setupScene()
+struct GameRunView:View{
+    var scene = SCNScene(named: "Game.scn")
+    var cameraNode:SCNNode?{
+        scene?.rootNode.childNode(withName: "camera", recursively: false)
     }
-    func setupScene(){
+    var SphereNode:SCNNode?{
+        scene?.rootNode.childNode(withName: "sphere", recursively: false)
+    }
+    var body: some View{
+        ZStack{
+            SceneView(
+                scene:scene,
+                pointOfView:cameraNode,
+                options:[.allowsCameraControl]
+            )
+            
+        }.onAppear{
+            self.InitPos()
+        }
         
     }
-    override var shouldAutorotate: Bool{
-        return false
+    //設定初始位置
+    func InitPos(){
+        SphereNode?.position = SCNVector3(pos,pos,0)
     }
-    override var prefersStatusBarHidden: Bool{
-        return true
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 }
+
+
