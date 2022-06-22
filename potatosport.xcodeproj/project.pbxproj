@@ -35,7 +35,8 @@
 		D981C67128621AF400A34263 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D981C66D28621AF400A34263 /* GoogleService-Info.plist */; };
 		D981C67228621AF400A34263 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C66E28621AF400A34263 /* model.swift */; };
 		D981C67328621AF400A34263 /* TextIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C66F28621AF400A34263 /* TextIndexView.swift */; };
-		D981C67528621B4A00A34263 /* firebase in Resources */ = {isa = PBXBuildFile; fileRef = D981C67428621B4A00A34263 /* firebase */; };
+		D981C67C2863749400A34263 /* RoomsConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C67A2863749300A34263 /* RoomsConnect.swift */; };
+		D981C67D2863749400A34263 /* AuthConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C67B2863749400A34263 /* AuthConnect.swift */; };
 		D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D993722E2852E7E7000D2397 /* potatosportApp.swift */; };
 		D99372312852E7E7000D2397 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99372302852E7E7000D2397 /* ContentView.swift */; };
 		D99372332852E7EB000D2397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99372322852E7EB000D2397 /* Assets.xcassets */; };
@@ -52,7 +53,8 @@
 		D981C66D28621AF400A34263 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../potato/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D981C66E28621AF400A34263 /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = model.swift; path = ../../potato/model.swift; sourceTree = "<group>"; };
 		D981C66F28621AF400A34263 /* TextIndexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextIndexView.swift; path = ../../potato/TextIndexView.swift; sourceTree = "<group>"; };
-		D981C67428621B4A00A34263 /* firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; name = firebase; path = ../../potato/firebase; sourceTree = "<group>"; };
+		D981C67A2863749300A34263 /* RoomsConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoomsConnect.swift; path = ../../potato/firebase/RoomsConnect.swift; sourceTree = "<group>"; };
+		D981C67B2863749400A34263 /* AuthConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthConnect.swift; path = ../../potato/firebase/AuthConnect.swift; sourceTree = "<group>"; };
 		D993722B2852E7E7000D2397 /* potatosport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = potatosport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D993722E2852E7E7000D2397 /* potatosportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = potatosportApp.swift; sourceTree = "<group>"; };
 		D99372302852E7E7000D2397 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,7 +111,6 @@
 		D993722D2852E7E7000D2397 /* potatosport */ = {
 			isa = PBXGroup;
 			children = (
-				D981C67428621B4A00A34263 /* firebase */,
 				6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */,
 				D981C66D28621AF400A34263 /* GoogleService-Info.plist */,
 				D981C66E28621AF400A34263 /* model.swift */,
@@ -120,6 +121,8 @@
 				D99372302852E7E7000D2397 /* ContentView.swift */,
 				D981C620285C84F100A34263 /* RunActionClassify.swift */,
 				D981C622285C86C700A34263 /* VideoCapture.swift */,
+				D981C67B2863749400A34263 /* AuthConnect.swift */,
+				D981C67A2863749300A34263 /* RoomsConnect.swift */,
 				D981C626285CBCD100A34263 /* RunPredictor.swift */,
 				D99372322852E7EB000D2397 /* Assets.xcassets */,
 				D99372342852E7EB000D2397 /* Preview Content */,
@@ -219,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */,
-				D981C67528621B4A00A34263 /* firebase in Resources */,
 				D99372332852E7EB000D2397 /* Assets.xcassets in Resources */,
 				D981C67128621AF400A34263 /* GoogleService-Info.plist in Resources */,
 			);
@@ -239,6 +241,8 @@
 				D99372312852E7E7000D2397 /* ContentView.swift in Sources */,
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
 				6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */,
+				D981C67C2863749400A34263 /* RoomsConnect.swift in Sources */,
+				D981C67D2863749400A34263 /* AuthConnect.swift in Sources */,
 				D981C67028621AF400A34263 /* SignInView.swift in Sources */,
 				D981C67228621AF400A34263 /* model.swift in Sources */,
 				D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */,
