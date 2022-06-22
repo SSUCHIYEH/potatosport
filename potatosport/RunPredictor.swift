@@ -9,7 +9,7 @@ import Foundation
 import Vision
 import UIKit
 
-typealias RunningClassifier = MyActionClassifier_1
+typealias RunningClassifier = runClassifier_2
 
 protocol PredictorDelegate:AnyObject{
     func predictor(_ predictor: RunPredictor, didFindNewRecognizedPoints points:[CGPoint])
@@ -58,7 +58,7 @@ class RunPredictor {
     
     
     func labelActiontype(){
-        guard let throwingClassifier = try? MyActionClassifier_1(configuration: MLModelConfiguration()),
+        guard let throwingClassifier = try? runClassifier_2(configuration: MLModelConfiguration()),
               let poseMultiArray = prepareInputwithObservations(poseWindow),
               let predictions = try? throwingClassifier.prediction(poses: poseMultiArray) else {
             return

@@ -6,11 +6,6 @@
 //
 
 import SwiftUI
-import FirebaseAuth
-import FirebaseFirestore
-import FirebaseDatabase
-import FirebaseDatabaseSwift
-
 
 struct ContentView: View {
     @State var email = ""
@@ -18,20 +13,22 @@ struct ContentView: View {
     
     @State private var orientation = UIDeviceOrientation.unknown
     
-    @EnvironmentObject var viewModel:AppAuthViewModel
+    @EnvironmentObject var viewModel: AppAuthViewModel
     
-    var body: some View {
-        RunActionView()
-    }
-//    NavigationView{
-//        if viewModel.signedIn {
-//            IndexView()
-//        } else {
-//            SignInView()
-//        }
-//    }.onAppear{
-//        viewModel.signedIn = viewModel.isSignIn
+//    var body: some View {
+//        RunActionView()
 //    }
+    var body: some View {
+        NavigationView{
+            if viewModel.signedIn {
+                IndexView()
+            } else {
+                SignInView()
+            }
+        }.onAppear{
+            viewModel.signedIn = viewModel.isSignIn
+        }
+    }
 }
 
 
