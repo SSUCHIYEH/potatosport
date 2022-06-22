@@ -35,7 +35,7 @@ struct ButtonView: View{
                     }
                     .frame(width: button.width, height: button.height)
                     //文字
-                    Text(button.name).font(.custom("Noto Sans TC Bold", size: button.fontsize)).foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                    Text(button.name).font(.custom("", size:button.fontsize )).foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
                 }
             }
             
@@ -61,7 +61,7 @@ struct AddFriendBtnView: View{
                     }
                     .frame(width: 49, height: 49)
                     //文字
-                    Text("+").font(.custom("Noto Sans TC Bold", size: 20)).foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                    Text("+").foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
                 }
             }
             

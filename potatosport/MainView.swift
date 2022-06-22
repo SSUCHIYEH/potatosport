@@ -10,17 +10,23 @@ import SwiftUI
 
 
 struct MainView: View {
+    @Binding var isPlaying:Bool
+    
     @State private var showAddFriendView = false
     @State private var showSelectmodeView = false
     
     var body: some View {
         ZStack(alignment: .leading) {
             Image("main_bg")
-                .resizable()
+                .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+                //.frame(width: 896, height: 414)
+                //.resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             Image("main_player")
-                .resizable()
+                .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+               // .frame(width: 896, height: 414)
+                //.resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             HStack{
@@ -32,43 +38,54 @@ struct MainView: View {
                     
                     AddFriendBtnView()
                 })
+                Spacer()
             }
-                
+            .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
             
-            MainUIView(showSelectmodeView:self.$showSelectmodeView)
+                
+            MainUIView(showSelectmodeView:self.$showSelectmodeView, isPlaying: self.$isPlaying)
+            
+            
+            
             if self.showAddFriendView{
                 AddFriendView(showAddFriendView: self.$showAddFriendView)
             }
             if self.showSelectmodeView{
                 SelectmodeView(showSelectmodeView:self.$showSelectmodeView)
             }
+           // LoadingView()
             
             
         }
+       // .frame(width:UIScreen.main.bounds.width-36,height:UIScreen.main.bounds.height-12)
+       
         
     }
 }
 struct MainUIView: View {
     @Binding var showSelectmodeView:Bool
+    @Binding var isPlaying:Bool
     var body: some View {
-        HStack(alignment:.top, spacing:50) {
+        HStack(alignment:.top, spacing:50){
             VStack{
+                HStack{}.frame(height:3)
                 ZStack(alignment: .center){
                     Image("main_userButton")
-                    Text("user").font(.custom("Noto Sans TC Bold", size: 20)).foregroundColor(Color("dark")).tracking(2).fontWeight(.black).offset(x: 0, y: -3)
+                    Text("user").foregroundColor(Color("dark")).tracking(2).fontWeight(.regular).offset(x: 0, y: -3)
                 }
                
                 Spacer()
             }
             Spacer()
             VStack{
+                HStack{}.frame(height:3)
                 Button(action: {
                    // print("open selectmode button")
                     self.showSelectmodeView = true
                 }, label: {
                     ZStack(alignment: .center){
                         Image("main_changemode")
-                        Text("選擇模式").font(.custom("Noto Sans TC Bold", size: 20)).foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                        Text("選擇模式").foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
                     }
                 })
                 Spacer()
@@ -80,98 +97,31 @@ struct MainUIView: View {
                     Button(action: {
                         
                     }, label: {
-                        ButtonView(button: Btn(name: "建立房間", width: 112, height: 38.4,fontsize:16))
+                        HStack{
+                            ButtonView(button: Btn(name: "建立房間", width: 112, height: 38.4,fontsize:14))
+                            HStack{}.frame(width:6)
+                        }
+                        
                     })
                     Button(action: {
-                        
+                        self.isPlaying=true
                     }, label: {
-                        ButtonView(button: Btn(name: "開始遊戲", width: 174, height: 50.4,fontsize: 20))
+                        HStack{
+                            ButtonView(button: Btn(name: "開始遊戲", width: 174, height: 50.4,fontsize: 20))
+                            HStack{}.frame(width:6)
+                        }
                     })
-                    
+                    HStack{}.frame(height:6)
                 }
             }
         }
+        .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+        //.frame(width: 860, height: 402)
+        
     }
 }
 
-struct SelectmodeView: View {
-    @Binding var showSelectmodeView:Bool
-    
-    var body: some View {
-        ZStack{
-            Rectangle()
-                .fill(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4)))
-                .edgesIgnoringSafeArea(.all)
-            ZStack{
-                Image("select_modal")
-                    .resizable()
-                    .scaledToFill()
-                    .edgesIgnoringSafeArea(.all)
-                HStack{
-                    HStack{}.frame(width:64)
-                    VStack(alignment: .leading, spacing: 30){
-                        HStack{
-                            Text("選擇遊戲模式").font(.custom("Noto Sans TC Bold", size: 18)).foregroundColor(Color("dark")).tracking(1.8)
-                            Spacer()
-                            Button(action: {
-                                self.showSelectmodeView = false
-                            }, label: {
-                                Image("icon_close")
-                            })
-                        }.frame(width:512)
-                        HStack(spacing:20){
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "對戰", width: 78, height: 40,fontsize:16))
-                            })
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "吃雞", width: 78, height: 40,fontsize:16))
-                            })
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "合作", width: 78, height: 40,fontsize:16))
-                            })
-                            
-                        }
-                        HStack{
-                            Text("希望鍛鍊的部位").font(.custom("Noto Sans TC Bold", size: 18)).foregroundColor(Color("dark")).tracking(1.8)
-                            
-                        }
-                        HStack(spacing:20){
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "手臂", width: 78, height: 40,fontsize:16))
-                            })
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "腹部", width: 78, height: 40,fontsize:16))
-                            })
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "腿部", width: 78, height: 40,fontsize:16))
-                            })
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "臀部", width: 78, height: 40,fontsize:16))
-                            })
-                            Button(action: {
-                            }, label: {
-                                ButtonView(button: Btn(name: "全身", width: 78, height: 40,fontsize:16))
-                            })
-                            
-                        }
-                    }
-                }
-            }
-            
-            
-            
-        }
-        
-    }
-    
-}
+
 
 struct ModelView: View{
     

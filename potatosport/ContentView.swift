@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPlaying = false
     var body: some View {
         //RunActionView()
-        MainView()
+        if isPlaying{
+            GameRunView()
+        }else{
+            MainView(isPlaying: self.$isPlaying)
+        }
+        
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewInterfaceOrientation(.landscapeLeft)
+            //.previewInterfaceOrientation(.landscapeLeft)
     }
 }
