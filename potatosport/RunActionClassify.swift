@@ -7,7 +7,6 @@
 
 import UIKit
 import AVFoundation
-
 import SwiftUI
 
 struct RunActionView: UIViewControllerRepresentable {
@@ -41,16 +40,22 @@ class RunActionViewController: UIViewController{
         videoCapture.startCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: videoCapture.captureSession)
         
+        
         guard let previewLayer = previewLayer else {return}
+        
         
         view.layer.addSublayer(previewLayer)
         previewLayer.frame = view.frame
+        previewLayer.videoGravity = .resizeAspectFill
+        previewLayer.connection?.videoOrientation = .landscapeRight
         
         view.layer.addSublayer(pointsLayer)
         pointsLayer.frame = view.frame
         pointsLayer.strokeColor = UIColor.green.cgColor
     }
 }
+   
+
 
 extension RunActionViewController: PredictorDelegate {
     func predictor(_ predictor: RunPredictor, didLabelAction action: String, with confidence: Double) {
@@ -68,8 +73,10 @@ extension RunActionViewController: PredictorDelegate {
 //
 //        }
         if action == "run" {
+            pos=pos+0.3
             print("run!!!!!!!!!!!!!")
         }else{
+            
             print("none")
         }
     }

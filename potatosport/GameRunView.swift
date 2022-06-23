@@ -21,20 +21,30 @@ struct GameRunView:View{
     }
     var body: some View{
         ZStack{
+            RunActionView()
             SceneView(
                 scene:scene,
                 pointOfView:cameraNode,
                 options:[.allowsCameraControl]
-            )
+            ).frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+            
             
         }.onAppear{
             self.InitPos()
+            self.UpdatePos()
         }
         
     }
     //設定初始位置
     func InitPos(){
         SphereNode?.position = SCNVector3(pos,pos,0)
+    }
+    func UpdatePos() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            //print("-----> callFunc")
+            SphereNode?.position = SCNVector3(pos,0,pos)
+            UpdatePos()
+        }
     }
 }
 

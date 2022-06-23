@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */; };
 		6F3AAEE62861F2F300B16D73 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */; };
 		6F3AAEE828620B2C00B16D73 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE728620B2C00B16D73 /* LoadingView.swift */; };
 		6F3AAEEA2862246D00B16D73 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE92862246D00B16D73 /* SelectModeView.swift */; };
@@ -15,12 +14,12 @@
 		6F3AAEEF28632D9600B16D73 /* Game.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AAEEE28632D9600B16D73 /* Game.scn */; };
 		6F3AAEF2286331AC00B16D73 /* ballDiffuse.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AAEF0286331AB00B16D73 /* ballDiffuse.jpeg */; };
 		6F3AAEF3286331AC00B16D73 /* comicSkyBox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AAEF1286331AB00B16D73 /* comicSkyBox.jpeg */; };
+		6F9DE4D028646C6400B417EC /* MyActionClassifier 3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DE4CF28646C6400B417EC /* MyActionClassifier 3.mlmodel */; };
 		6FB225D92860D8D50026FAFB /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB225D82860D8D50026FAFB /* Components.swift */; };
 		6FDA7399285F70D700EA58C4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA7398285F70D700EA58C4 /* MainView.swift */; };
 		D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C620285C84F100A34263 /* RunActionClassify.swift */; };
 		D981C623285C86C700A34263 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C622285C86C700A34263 /* VideoCapture.swift */; };
 		D981C627285CBCD100A34263 /* RunPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C626285CBCD100A34263 /* RunPredictor.swift */; };
-		D981C629285CC5BB00A34263 /* runClassifier_2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D981C628285CC5BB00A34263 /* runClassifier_2.mlmodel */; };
 		D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D993722E2852E7E7000D2397 /* potatosportApp.swift */; };
 		D99372312852E7E7000D2397 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99372302852E7E7000D2397 /* ContentView.swift */; };
 		D99372332852E7EB000D2397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99372322852E7EB000D2397 /* Assets.xcassets */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "MyActionClassifier 1.mlmodel"; path = "../../../../../var/folders/tq/f1m49vrn27j1dwh72gj66_th0000gn/T/com.apple.dt.CreateML.app/sharing/drag/5265E06E-6325-4401-9ECA-8A99D3059433/MyActionClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		6F3AAEE728620B2C00B16D73 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6F3AAEE92862246D00B16D73 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
@@ -36,12 +34,12 @@
 		6F3AAEEE28632D9600B16D73 /* Game.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Game.scn; sourceTree = "<group>"; };
 		6F3AAEF0286331AB00B16D73 /* ballDiffuse.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballDiffuse.jpeg; sourceTree = "<group>"; };
 		6F3AAEF1286331AB00B16D73 /* comicSkyBox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comicSkyBox.jpeg; sourceTree = "<group>"; };
+		6F9DE4CF28646C6400B417EC /* MyActionClassifier 3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MyActionClassifier 3.mlmodel"; sourceTree = "<group>"; };
 		6FB225D82860D8D50026FAFB /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		6FDA7398285F70D700EA58C4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		D981C620285C84F100A34263 /* RunActionClassify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActionClassify.swift; sourceTree = "<group>"; };
 		D981C622285C86C700A34263 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D981C626285CBCD100A34263 /* RunPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPredictor.swift; sourceTree = "<group>"; };
-		D981C628285CC5BB00A34263 /* runClassifier_2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = runClassifier_2.mlmodel; sourceTree = "<group>"; };
 		D993722B2852E7E7000D2397 /* potatosport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = potatosport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D993722E2852E7E7000D2397 /* potatosportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = potatosportApp.swift; sourceTree = "<group>"; };
 		D99372302852E7E7000D2397 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,8 +96,6 @@
 			children = (
 				6F3AAEED28632D3800B16D73 /* art.scnassets */,
 				6FDA739A285F722200EA58C4 /* Models */,
-				6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */,
-				D981C628285CC5BB00A34263 /* runClassifier_2.mlmodel */,
 				D993722E2852E7E7000D2397 /* potatosportApp.swift */,
 				D99372302852E7E7000D2397 /* ContentView.swift */,
 				D981C620285C84F100A34263 /* RunActionClassify.swift */,
@@ -107,6 +103,7 @@
 				D981C626285CBCD100A34263 /* RunPredictor.swift */,
 				6FDA7398285F70D700EA58C4 /* MainView.swift */,
 				6FB225D82860D8D50026FAFB /* Components.swift */,
+				6F9DE4CF28646C6400B417EC /* MyActionClassifier 3.mlmodel */,
 				D99372322852E7EB000D2397 /* Assets.xcassets */,
 				D99372342852E7EB000D2397 /* Preview Content */,
 				6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */,
@@ -202,11 +199,10 @@
 				6FDA7399285F70D700EA58C4 /* MainView.swift in Sources */,
 				D981C623285C86C700A34263 /* VideoCapture.swift in Sources */,
 				6F3AAEEC286313B000B16D73 /* GameRunView.swift in Sources */,
+				6F9DE4D028646C6400B417EC /* MyActionClassifier 3.mlmodel in Sources */,
 				6F3AAEE828620B2C00B16D73 /* LoadingView.swift in Sources */,
-				D981C629285CC5BB00A34263 /* runClassifier_2.mlmodel in Sources */,
 				D99372312852E7E7000D2397 /* ContentView.swift in Sources */,
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
-				6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */,
 				6FB225D92860D8D50026FAFB /* Components.swift in Sources */,
 				6F3AAEE62861F2F300B16D73 /* AddFriendView.swift in Sources */,
 				D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */,
