@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F151A062864959C000176C3 /* player.dae in Resources */ = {isa = PBXBuildFile; fileRef = 6F151A052864959C000176C3 /* player.dae */; };
 		6F3AAEE62861F2F300B16D73 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */; };
 		6F3AAEE828620B2C00B16D73 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE728620B2C00B16D73 /* LoadingView.swift */; };
 		6F3AAEEA2862246D00B16D73 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AAEE92862246D00B16D73 /* SelectModeView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F151A052864959C000176C3 /* player.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = player.dae; sourceTree = "<group>"; };
 		6F3AAEE52861F2F300B16D73 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		6F3AAEE728620B2C00B16D73 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6F3AAEE92862246D00B16D73 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		6F3AAEED28632D3800B16D73 /* art.scnassets */ = {
 			isa = PBXGroup;
 			children = (
+				6F151A052864959C000176C3 /* player.dae */,
 				6F3AAEEE28632D9600B16D73 /* Game.scn */,
 				6F3AAEF0286331AB00B16D73 /* ballDiffuse.jpeg */,
 				6F3AAEF1286331AB00B16D73 /* comicSkyBox.jpeg */,
@@ -183,6 +186,7 @@
 				6F3AAEEF28632D9600B16D73 /* Game.scn in Resources */,
 				6F3AAEF3286331AC00B16D73 /* comicSkyBox.jpeg in Resources */,
 				6F3AAEF2286331AC00B16D73 /* ballDiffuse.jpeg in Resources */,
+				6F151A062864959C000176C3 /* player.dae in Resources */,
 				D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */,
 				D99372332852E7EB000D2397 /* Assets.xcassets in Resources */,
 			);

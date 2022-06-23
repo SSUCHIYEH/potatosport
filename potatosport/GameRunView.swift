@@ -8,7 +8,7 @@
 import SwiftUI
 import SceneKit
 
-var pos:Float = 3
+var pos:Float = 0
 
 
 struct GameRunView:View{
@@ -17,8 +17,9 @@ struct GameRunView:View{
         scene?.rootNode.childNode(withName: "camera", recursively: false)
     }
     var SphereNode:SCNNode?{
-        scene?.rootNode.childNode(withName: "sphere", recursively: false)
+        scene?.rootNode.childNode(withName: "player", recursively: false)
     }
+    
     var body: some View{
         ZStack{
             RunActionView()
@@ -37,15 +38,18 @@ struct GameRunView:View{
     }
     //設定初始位置
     func InitPos(){
-        SphereNode?.position = SCNVector3(pos,pos,0)
+        SphereNode?.position = SCNVector3(0,0,0)
     }
     func UpdatePos() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             //print("-----> callFunc")
-            SphereNode?.position = SCNVector3(pos,0,pos)
+            SphereNode?.position = SCNVector3(0,0,pos)
             UpdatePos()
         }
     }
 }
 
-
+//動畫參考
+//let action = SCNAction.moveBy(x: 0, y: 0.3, z: 0, duration: 3)
+//    action.timingMode = .easeInEaseOut
+//    rocketshipNode.runAction(action)

@@ -10,9 +10,6 @@ import SwiftUI
 struct FriendName {
     let name:String
 }
-
-
-
 struct AddFriendView: View {
     @Binding var showAddFriendView:Bool
     let friends=[
