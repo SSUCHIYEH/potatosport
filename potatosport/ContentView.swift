@@ -13,20 +13,20 @@ struct ContentView: View {
     
     @State private var orientation = UIDeviceOrientation.unknown
     
-    @EnvironmentObject var viewModel: AppAuthViewModel
+    @EnvironmentObject var authViewModel: AppAuthViewModel
     
 //    var body: some View {
 //        RunActionView()
 //    }
     var body: some View {
         NavigationView{
-            if viewModel.signedIn {
+            if authViewModel.signedIn {
                 IndexView()
             } else {
                 SignInView()
             }
         }.onAppear{
-            viewModel.signedIn = viewModel.isSignIn
+            authViewModel.signedIn = authViewModel.isSignIn
         }
     }
 }

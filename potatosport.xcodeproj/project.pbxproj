@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */; };
 		6F5EC4FC286372120042BC0F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC4FB286372120042BC0F /* FirebaseAnalytics */; };
 		6F5EC4FE286372120042BC0F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC4FD286372120042BC0F /* FirebaseAnalyticsSwift */; };
 		6F5EC500286372120042BC0F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC4FF286372120042BC0F /* FirebaseAuth */; };
@@ -41,10 +40,10 @@
 		D99372312852E7E7000D2397 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99372302852E7E7000D2397 /* ContentView.swift */; };
 		D99372332852E7EB000D2397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99372322852E7EB000D2397 /* Assets.xcassets */; };
 		D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99372352852E7EB000D2397 /* Preview Assets.xcassets */; };
+		D9CC04992864BF3A0081FA26 /* friendConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CC04982864BF3A0081FA26 /* friendConnect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "MyActionClassifier 1.mlmodel"; path = "../../../../../var/folders/tq/f1m49vrn27j1dwh72gj66_th0000gn/T/com.apple.dt.CreateML.app/sharing/drag/5265E06E-6325-4401-9ECA-8A99D3059433/MyActionClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		D981C620285C84F100A34263 /* RunActionClassify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActionClassify.swift; sourceTree = "<group>"; };
 		D981C622285C86C700A34263 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D981C626285CBCD100A34263 /* RunPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPredictor.swift; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		D99372302852E7E7000D2397 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D99372322852E7EB000D2397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D99372352852E7EB000D2397 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D9CC04982864BF3A0081FA26 /* friendConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendConnect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,6 @@
 		D993722D2852E7E7000D2397 /* potatosport */ = {
 			isa = PBXGroup;
 			children = (
-				6F364BA5285DAFDA000D2CA4 /* MyActionClassifier 1.mlmodel */,
 				D981C66D28621AF400A34263 /* GoogleService-Info.plist */,
 				D981C66E28621AF400A34263 /* model.swift */,
 				D981C66C28621AF400A34263 /* SignInView.swift */,
@@ -120,6 +119,7 @@
 				D993722E2852E7E7000D2397 /* potatosportApp.swift */,
 				D99372302852E7E7000D2397 /* ContentView.swift */,
 				D981C620285C84F100A34263 /* RunActionClassify.swift */,
+				D9CC04982864BF3A0081FA26 /* friendConnect.swift */,
 				D981C622285C86C700A34263 /* VideoCapture.swift */,
 				D981C67B2863749400A34263 /* AuthConnect.swift */,
 				D981C67A2863749300A34263 /* RoomsConnect.swift */,
@@ -238,9 +238,9 @@
 				D981C623285C86C700A34263 /* VideoCapture.swift in Sources */,
 				D981C67328621AF400A34263 /* TextIndexView.swift in Sources */,
 				D981C629285CC5BB00A34263 /* runClassifier_2.mlmodel in Sources */,
+				D9CC04992864BF3A0081FA26 /* friendConnect.swift in Sources */,
 				D99372312852E7E7000D2397 /* ContentView.swift in Sources */,
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
-				6F364BA6285DAFEF000D2CA4 /* MyActionClassifier 1.mlmodel in Sources */,
 				D981C67C2863749400A34263 /* RoomsConnect.swift in Sources */,
 				D981C67D2863749400A34263 /* AuthConnect.swift in Sources */,
 				D981C67028621AF400A34263 /* SignInView.swift in Sources */,
@@ -374,7 +374,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"potatosport/Preview Content\"";
-				DEVELOPMENT_TEAM = 434J59NFBU;
+				DEVELOPMENT_TEAM = 569DS46J4L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to access your camera to analyze It's game recognition";
@@ -405,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"potatosport/Preview Content\"";
-				DEVELOPMENT_TEAM = 434J59NFBU;
+				DEVELOPMENT_TEAM = 569DS46J4L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to access your camera to analyze It's game recognition";
