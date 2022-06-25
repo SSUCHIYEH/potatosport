@@ -16,34 +16,23 @@ struct MainView: View {
     @State private var showSelectmodeView = false
     
     var body: some View {
-        ZStack(alignment: .leading) {
+        ZStack(alignment:.center) {
             Image("main_bg")
-                .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+                //.frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                 //.frame(width: 896, height: 414)
-                //.resizable()
+                .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             Image("main_player")
-                .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+               // .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                // .frame(width: 896, height: 414)
-                //.resizable()
+                .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-            HStack{
-                HStack{}.frame(width:24)
-                Button(action: {
-                   // print("click addfriend button")
-                    self.showAddFriendView = true
-                }, label: {
-                    
-                    AddFriendBtnView()
-                })
-                Spacer()
-            }
-            .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+            
             
                 
-            MainUIView(showSelectmodeView:self.$showSelectmodeView, isPlaying: self.$isPlaying)
+            MainUIView(showAddFriendView: self.$showAddFriendView, showSelectmodeView:self.$showSelectmodeView, isPlaying: self.$isPlaying)
             
             
             
@@ -57,14 +46,16 @@ struct MainView: View {
             
             
         }
-       // .frame(width:UIScreen.main.bounds.width-36,height:UIScreen.main.bounds.height-12)
+        .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
        
         
     }
 }
 struct MainUIView: View {
+    @Binding var showAddFriendView:Bool
     @Binding var showSelectmodeView:Bool
     @Binding var isPlaying:Bool
+    
     var body: some View {
         HStack(alignment:.top, spacing:50){
             VStack{
@@ -72,6 +63,18 @@ struct MainUIView: View {
                 ZStack(alignment: .center){
                     Image("main_userButton")
                     Text("user").foregroundColor(Color("dark")).tracking(2).fontWeight(.regular).offset(x: 0, y: -3)
+                }
+                Spacer()
+                HStack{
+                    //HStack{}.frame(width:24)
+                    Button(action: {
+                       // print("click addfriend button")
+                        self.showAddFriendView = true
+                    }, label: {
+                        
+                        AddFriendBtnView()
+                    })
+                    //Spacer()
                 }
                
                 Spacer()

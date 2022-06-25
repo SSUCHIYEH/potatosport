@@ -59,7 +59,7 @@ struct AddFriendView: View {
                 
             }
         }
-       // .frame(width:UIScreen.main.bounds.width-36,height:UIScreen.main.bounds.height-12)
+        .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
     }
     
 }
