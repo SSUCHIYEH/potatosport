@@ -14,7 +14,7 @@ import FirebaseDatabaseSwift
 
 class friendCoonectViewModel: ObservableObject {
     @Published var firendList = [UserInfo]()
-    @Published var selfPlyaers = [String: Any]()
+    @Published var selfPlyaers = [String: UserPlayer]()
     @Published var isLeader = true
     @Published var friendRoomId = ""
     @Published var leaderId = ""

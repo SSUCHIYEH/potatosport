@@ -20,13 +20,18 @@ struct ContentView: View {
 //    }
     var body: some View {
         NavigationView{
-            if authViewModel.signedIn {
-                IndexView()
-            } else {
-                SignInView()
+            if authViewModel.authLoading {
+                Text("連線中...")
+            }else{
+                if authViewModel.signedIn {
+                    IndexView()
+                } else {
+                    SignInView()
+                }
             }
+            
         }.onAppear{
-            authViewModel.signedIn = authViewModel.isSignIn
+            authViewModel.isSignIn()
         }
     }
 }
