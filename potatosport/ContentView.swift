@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var email = ""
+    @State var password = ""
+    @State private var orientation = UIDeviceOrientation.unknown
     @State private var isPlaying = false
+    @EnvironmentObject var authViewModel: AppAuthViewModel
+    
     var body: some View {
         
         if isPlaying{
@@ -26,11 +31,29 @@ struct ContentView: View {
                 }
         }
     }
+
+        //        NavigationView{
+        //            if authViewModel.authLoading {
+        //                Text("連線中...")
+        //            }else{
+        //                if authViewModel.signedIn {
+        //                    IndexView()
+        //                } else {
+        //                    SignInView()
+        //                }
+        //            }
+        //
+        //        }
+        //        .onAppear{
+        //            authViewModel.isSignIn()
+        //        }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            //.previewInterfaceOrientation(.landscapeLeft)
     }
 }
+
