@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isPlaying = false
+    @State private var isPlaying = true
     var body: some View {
         
         if isPlaying{
-            GameRunView()
-           //
+            GameRunView(isPlaying: self.$isPlaying)
         }else{
             //RunActionView()
             MainView(isPlaying: self.$isPlaying)
                 .onAppear{
                     UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue,forKey: "orientation")
                     AppDelegate.orientationLock = .landscapeRight
-                }
-                .onDisappear{
-                    AppDelegate.orientationLock = .all
                 }
         }
     }
@@ -31,6 +27,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            //.previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -14,6 +14,7 @@ struct potatosportApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
     }
 }

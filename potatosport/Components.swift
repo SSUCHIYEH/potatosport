@@ -68,3 +68,31 @@ struct AddFriendBtnView: View{
         }
     }
 }
+
+//結算畫面，返回主畫面btn
+struct BackHomeBtnView: View{
+    var body: some View {
+        VStack{
+            ZStack(alignment: .center){
+                //陰影
+                RoundedRectangle(cornerRadius: 5)
+                    .fill(Color("dark"))
+                    .frame(width:160, height: 55)
+                    .offset(x: 5, y: 5)
+                ZStack(alignment: .center){
+                    //黃色button
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color("red"))
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color("white"), lineWidth: 4)
+                    }
+                    .frame(width: 160, height: 55)
+                    //文字
+                    Text("回到主畫面").font(.custom("", size:20 )).foregroundColor(Color("white")).tracking(2).fontWeight(.black)
+                }
+            }
+            
+        }
+    }
+}
