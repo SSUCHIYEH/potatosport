@@ -19,6 +19,7 @@ class VideoCapture: NSObject{
     
     override init() {
         super.init()
+//        let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video,position: .front),
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video,position: .front),
             let input = try? AVCaptureDeviceInput(device: captureDevice) else {
             return
