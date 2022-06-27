@@ -73,7 +73,7 @@ extension RunActionViewController: PredictorDelegate {
 //
 //        }
         if action == "run" {
-            pos=pos-0.2
+//            pos=pos-0.2
             print("run!!!!!!!!!!!!!")
         }else{
             

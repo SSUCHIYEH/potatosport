@@ -19,7 +19,6 @@
 		D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C620285C84F100A34263 /* RunActionClassify.swift */; };
 		D981C623285C86C700A34263 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C622285C86C700A34263 /* VideoCapture.swift */; };
 		D981C627285CBCD100A34263 /* RunPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C626285CBCD100A34263 /* RunPredictor.swift */; };
-		D981C629285CC5BB00A34263 /* runClassifier_2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D981C628285CC5BB00A34263 /* runClassifier_2.mlmodel */; };
 		D981C63D2862103400A34263 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D981C63C2862103400A34263 /* FirebaseAnalytics */; };
 		D981C63F2862103400A34263 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D981C63E2862103400A34263 /* FirebaseAnalyticsSwift */; };
 		D981C6412862103400A34263 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D981C6402862103400A34263 /* FirebaseAuth */; };
@@ -38,7 +37,14 @@
 		D981C67D2863749400A34263 /* AuthConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C67B2863749400A34263 /* AuthConnect.swift */; };
 		D982B20F2867797800AC9D95 /* TestGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982B20E2867797800AC9D95 /* TestGameView.swift */; };
 		D982B2112868EE5E00AC9D95 /* MasonTurnActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982B2102868EE5E00AC9D95 /* MasonTurnActionView.swift */; };
-		D982B21F286960E200AC9D95 /* turnAction_2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D982B21E286960E100AC9D95 /* turnAction_2.mlmodel */; };
+		D98309EF286A154A00ACD623 /* turnAction_2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D98309EE286A154A00ACD623 /* turnAction_2.mlmodel */; };
+		D98309F5286A15BE00ACD623 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309F0286A15BE00ACD623 /* MainView.swift */; };
+		D98309F6286A15BE00ACD623 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D98309F1286A15BE00ACD623 /* art.scnassets */; };
+		D98309F7286A15BE00ACD623 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309F2286A15BE00ACD623 /* SelectModeView.swift */; };
+		D98309F8286A15BE00ACD623 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309F3286A15BE00ACD623 /* LoadingView.swift */; };
+		D98309F9286A15BE00ACD623 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309F4286A15BE00ACD623 /* AddFriendView.swift */; };
+		D98309FB286A167F00ACD623 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309FA286A167E00ACD623 /* Components.swift */; };
+		D98309FD286A171700ACD623 /* GameRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309FC286A171700ACD623 /* GameRunView.swift */; };
 		D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D993722E2852E7E7000D2397 /* potatosportApp.swift */; };
 		D99372312852E7E7000D2397 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99372302852E7E7000D2397 /* ContentView.swift */; };
 		D99372332852E7EB000D2397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99372322852E7EB000D2397 /* Assets.xcassets */; };
@@ -51,7 +57,6 @@
 		D981C620285C84F100A34263 /* RunActionClassify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActionClassify.swift; sourceTree = "<group>"; };
 		D981C622285C86C700A34263 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D981C626285CBCD100A34263 /* RunPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPredictor.swift; sourceTree = "<group>"; };
-		D981C628285CC5BB00A34263 /* runClassifier_2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = runClassifier_2.mlmodel; sourceTree = "<group>"; };
 		D981C66C28621AF400A34263 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInView.swift; path = ../../potato/SignInView.swift; sourceTree = "<group>"; };
 		D981C66D28621AF400A34263 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../potato/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D981C66E28621AF400A34263 /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = model.swift; path = ../../potato/model.swift; sourceTree = "<group>"; };
@@ -60,7 +65,14 @@
 		D981C67B2863749400A34263 /* AuthConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthConnect.swift; path = ../../potato/firebase/AuthConnect.swift; sourceTree = "<group>"; };
 		D982B20E2867797800AC9D95 /* TestGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGameView.swift; sourceTree = "<group>"; };
 		D982B2102868EE5E00AC9D95 /* MasonTurnActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasonTurnActionView.swift; sourceTree = "<group>"; };
-		D982B21E286960E100AC9D95 /* turnAction_2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = turnAction_2.mlmodel; path = "../../../../../var/folders/79/kchlwj_s4sjgz8sz4jkql5nr0000gn/T/com.apple.dt.CreateML.app/sharing/drag/14BCCB45-3834-4829-B6A4-5CDC28CE547F/turnAction_2.mlmodel"; sourceTree = "<group>"; };
+		D98309EE286A154A00ACD623 /* turnAction_2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = turnAction_2.mlmodel; sourceTree = "<group>"; };
+		D98309F0286A15BE00ACD623 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D98309F1286A15BE00ACD623 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D98309F2286A15BE00ACD623 /* SelectModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
+		D98309F3286A15BE00ACD623 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D98309F4286A15BE00ACD623 /* AddFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		D98309FA286A167E00ACD623 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		D98309FC286A171700ACD623 /* GameRunView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRunView.swift; sourceTree = "<group>"; };
 		D993722B2852E7E7000D2397 /* potatosport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = potatosport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D993722E2852E7E7000D2397 /* potatosportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = potatosportApp.swift; sourceTree = "<group>"; };
 		D99372302852E7E7000D2397 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,25 +131,31 @@
 		D993722D2852E7E7000D2397 /* potatosport */ = {
 			isa = PBXGroup;
 			children = (
-				D982B21E286960E100AC9D95 /* turnAction_2.mlmodel */,
-				D981C66D28621AF400A34263 /* GoogleService-Info.plist */,
-				D981C66E28621AF400A34263 /* model.swift */,
-				D981C66C28621AF400A34263 /* SignInView.swift */,
-				D981C628285CC5BB00A34263 /* runClassifier_2.mlmodel */,
-				D993722E2852E7E7000D2397 /* potatosportApp.swift */,
-				D99372302852E7E7000D2397 /* ContentView.swift */,
-				D981C620285C84F100A34263 /* RunActionClassify.swift */,
-				D9CC04982864BF3A0081FA26 /* friendConnect.swift */,
-				D981C622285C86C700A34263 /* VideoCapture.swift */,
-				D981C67B2863749400A34263 /* AuthConnect.swift */,
-				D981C67A2863749300A34263 /* RoomsConnect.swift */,
-				D981C66F28621AF400A34263 /* TextIndexView.swift */,
-				D982B20E2867797800AC9D95 /* TestGameView.swift */,
-				D981C626285CBCD100A34263 /* RunPredictor.swift */,
+				D98309F4286A15BE00ACD623 /* AddFriendView.swift */,
+				D98309F1286A15BE00ACD623 /* art.scnassets */,
 				D99372322852E7EB000D2397 /* Assets.xcassets */,
-				D99372342852E7EB000D2397 /* Preview Content */,
+				D981C67B2863749400A34263 /* AuthConnect.swift */,
+				D98309FA286A167E00ACD623 /* Components.swift */,
+				D99372302852E7E7000D2397 /* ContentView.swift */,
+				D9CC04982864BF3A0081FA26 /* friendConnect.swift */,
 				D9CC049A286638510081FA26 /* GameConnect.swift */,
+				D98309FC286A171700ACD623 /* GameRunView.swift */,
+				D981C66D28621AF400A34263 /* GoogleService-Info.plist */,
+				D98309F3286A15BE00ACD623 /* LoadingView.swift */,
+				D98309F0286A15BE00ACD623 /* MainView.swift */,
 				D982B2102868EE5E00AC9D95 /* MasonTurnActionView.swift */,
+				D981C66E28621AF400A34263 /* model.swift */,
+				D993722E2852E7E7000D2397 /* potatosportApp.swift */,
+				D99372342852E7EB000D2397 /* Preview Content */,
+				D981C67A2863749300A34263 /* RoomsConnect.swift */,
+				D981C620285C84F100A34263 /* RunActionClassify.swift */,
+				D981C626285CBCD100A34263 /* RunPredictor.swift */,
+				D98309F2286A15BE00ACD623 /* SelectModeView.swift */,
+				D981C66C28621AF400A34263 /* SignInView.swift */,
+				D982B20E2867797800AC9D95 /* TestGameView.swift */,
+				D981C66F28621AF400A34263 /* TextIndexView.swift */,
+				D98309EE286A154A00ACD623 /* turnAction_2.mlmodel */,
+				D981C622285C86C700A34263 /* VideoCapture.swift */,
 			);
 			path = potatosport;
 			sourceTree = "<group>";
@@ -234,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */,
+				D98309F6286A15BE00ACD623 /* art.scnassets in Resources */,
 				D99372332852E7EB000D2397 /* Assets.xcassets in Resources */,
 				D981C67128621AF400A34263 /* GoogleService-Info.plist in Resources */,
 			);
@@ -246,22 +265,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98309F9286A15BE00ACD623 /* AddFriendView.swift in Sources */,
+				D98309FD286A171700ACD623 /* GameRunView.swift in Sources */,
 				D9CC049B286638510081FA26 /* GameConnect.swift in Sources */,
 				D981C627285CBCD100A34263 /* RunPredictor.swift in Sources */,
+				D98309F7286A15BE00ACD623 /* SelectModeView.swift in Sources */,
+				D98309EF286A154A00ACD623 /* turnAction_2.mlmodel in Sources */,
 				D981C623285C86C700A34263 /* VideoCapture.swift in Sources */,
 				D981C67328621AF400A34263 /* TextIndexView.swift in Sources */,
-				D982B21F286960E200AC9D95 /* turnAction_2.mlmodel in Sources */,
-				D981C629285CC5BB00A34263 /* runClassifier_2.mlmodel in Sources */,
 				D982B2112868EE5E00AC9D95 /* MasonTurnActionView.swift in Sources */,
 				D9CC04992864BF3A0081FA26 /* friendConnect.swift in Sources */,
 				D99372312852E7E7000D2397 /* ContentView.swift in Sources */,
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
+				D98309F5286A15BE00ACD623 /* MainView.swift in Sources */,
 				D981C67C2863749400A34263 /* RoomsConnect.swift in Sources */,
 				D981C67D2863749400A34263 /* AuthConnect.swift in Sources */,
 				D981C67028621AF400A34263 /* SignInView.swift in Sources */,
 				D981C67228621AF400A34263 /* model.swift in Sources */,
 				D982B20F2867797800AC9D95 /* TestGameView.swift in Sources */,
+				D98309FB286A167F00ACD623 /* Components.swift in Sources */,
 				D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */,
+				D98309F8286A15BE00ACD623 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
