@@ -45,6 +45,7 @@
 		D98309F9286A15BE00ACD623 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309F4286A15BE00ACD623 /* AddFriendView.swift */; };
 		D98309FB286A167F00ACD623 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309FA286A167E00ACD623 /* Components.swift */; };
 		D98309FD286A171700ACD623 /* GameRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98309FC286A171700ACD623 /* GameRunView.swift */; };
+		D98309FF286A187B00ACD623 /* MyActionClassifier 3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D98309FE286A187B00ACD623 /* MyActionClassifier 3.mlmodel */; };
 		D993722F2852E7E7000D2397 /* potatosportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D993722E2852E7E7000D2397 /* potatosportApp.swift */; };
 		D99372312852E7E7000D2397 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99372302852E7E7000D2397 /* ContentView.swift */; };
 		D99372332852E7EB000D2397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99372322852E7EB000D2397 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		D98309F4286A15BE00ACD623 /* AddFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		D98309FA286A167E00ACD623 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		D98309FC286A171700ACD623 /* GameRunView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRunView.swift; sourceTree = "<group>"; };
+		D98309FE286A187B00ACD623 /* MyActionClassifier 3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MyActionClassifier 3.mlmodel"; sourceTree = "<group>"; };
 		D993722B2852E7E7000D2397 /* potatosport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = potatosport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D993722E2852E7E7000D2397 /* potatosportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = potatosportApp.swift; sourceTree = "<group>"; };
 		D99372302852E7E7000D2397 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,22 +133,22 @@
 		D993722D2852E7E7000D2397 /* potatosport */ = {
 			isa = PBXGroup;
 			children = (
-				D98309F4286A15BE00ACD623 /* AddFriendView.swift */,
+				D98309FE286A187B00ACD623 /* MyActionClassifier 3.mlmodel */,
+				D98309EE286A154A00ACD623 /* turnAction_2.mlmodel */,
+				D981C66D28621AF400A34263 /* GoogleService-Info.plist */,
 				D98309F1286A15BE00ACD623 /* art.scnassets */,
-				D99372322852E7EB000D2397 /* Assets.xcassets */,
+				D98309F4286A15BE00ACD623 /* AddFriendView.swift */,
 				D981C67B2863749400A34263 /* AuthConnect.swift */,
 				D98309FA286A167E00ACD623 /* Components.swift */,
 				D99372302852E7E7000D2397 /* ContentView.swift */,
 				D9CC04982864BF3A0081FA26 /* friendConnect.swift */,
 				D9CC049A286638510081FA26 /* GameConnect.swift */,
 				D98309FC286A171700ACD623 /* GameRunView.swift */,
-				D981C66D28621AF400A34263 /* GoogleService-Info.plist */,
 				D98309F3286A15BE00ACD623 /* LoadingView.swift */,
 				D98309F0286A15BE00ACD623 /* MainView.swift */,
 				D982B2102868EE5E00AC9D95 /* MasonTurnActionView.swift */,
 				D981C66E28621AF400A34263 /* model.swift */,
 				D993722E2852E7E7000D2397 /* potatosportApp.swift */,
-				D99372342852E7EB000D2397 /* Preview Content */,
 				D981C67A2863749300A34263 /* RoomsConnect.swift */,
 				D981C620285C84F100A34263 /* RunActionClassify.swift */,
 				D981C626285CBCD100A34263 /* RunPredictor.swift */,
@@ -154,8 +156,9 @@
 				D981C66C28621AF400A34263 /* SignInView.swift */,
 				D982B20E2867797800AC9D95 /* TestGameView.swift */,
 				D981C66F28621AF400A34263 /* TextIndexView.swift */,
-				D98309EE286A154A00ACD623 /* turnAction_2.mlmodel */,
 				D981C622285C86C700A34263 /* VideoCapture.swift */,
+				D99372322852E7EB000D2397 /* Assets.xcassets */,
+				D99372342852E7EB000D2397 /* Preview Content */,
 			);
 			path = potatosport;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
 				D98309F5286A15BE00ACD623 /* MainView.swift in Sources */,
 				D981C67C2863749400A34263 /* RoomsConnect.swift in Sources */,
+				D98309FF286A187B00ACD623 /* MyActionClassifier 3.mlmodel in Sources */,
 				D981C67D2863749400A34263 /* AuthConnect.swift in Sources */,
 				D981C67028621AF400A34263 /* SignInView.swift in Sources */,
 				D981C67228621AF400A34263 /* model.swift in Sources */,

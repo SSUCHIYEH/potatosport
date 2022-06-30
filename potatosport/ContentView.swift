@@ -11,25 +11,38 @@ struct ContentView: View {
     @State var email = ""
     @State var password = ""
     @State private var orientation = UIDeviceOrientation.unknown
-    @State private var isPlaying = false
     @EnvironmentObject var authViewModel: AppAuthViewModel
-    
+    @EnvironmentObject var rooomConnectModel: roomsConnetModel
     var body: some View {
-        
-        if isPlaying{
-            GameRunView()
-           //
-        }else{
-            //RunActionView()
-            MainView(isPlaying: self.$isPlaying)
-                .onAppear{
-                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue,forKey: "orientation")
-                    AppDelegate.orientationLock = .landscapeRight
-                }
-                .onDisappear{
-                    AppDelegate.orientationLock = .all
-                }
+        VStack{
+            if authViewModel.authLoading {
+               Text("連線中...")
+           }else{
+               if authViewModel.signedIn {
+                   if rooomConnectModel.isPlaying{
+                       GameRunView()
+                      //
+                   }else{
+                       //RunActionView()
+                       MainView()
+                       .onAppear{
+                           UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue,forKey: "orientation")
+                           AppDelegate.orientationLock = .landscapeRight
+                       }
+                       .onDisappear{
+                           AppDelegate.orientationLock = .all
+                       }
+                   }
+               } else {
+                   SignInView()
+               }
+           }
         }
+        .padding(0)
+        .onAppear{
+            authViewModel.isSignIn()
+        }
+        
     }
 
         //        NavigationView{
@@ -44,9 +57,7 @@ struct ContentView: View {
         //            }
         //
         //        }
-        //        .onAppear{
-        //            authViewModel.isSignIn()
-        //        }
+     
 }
 
 

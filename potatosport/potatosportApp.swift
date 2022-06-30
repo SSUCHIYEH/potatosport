@@ -8,23 +8,45 @@
 import SwiftUI
 import FirebaseCore
 
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
+class AppDelegate: NSObject, UIApplicationDelegate{
+    static var orientationLock = UIInterfaceOrientationMask.landscapeRight
+    func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-    return true
-  }
+        FirebaseApp.configure()
+        return true
+    }
+    func application(_ application: UIApplication,supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.orientationLock
+    }
+    
 }
+
+
+//class AppDelegate: NSObject, UIApplicationDelegate {
+//  static var orientationLock = UIInterfaceOrientationMask.landscapeRight
+//  func application(_ application: UIApplication,
+//                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+//    FirebaseApp.configure()
+//    return true
+//  }
+//}
 
 @main
 struct potatosportApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var AppDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
+            let roomConnectViewModel = roomsConnetModel()
+            let friendConnectViewModel = friendCoonectViewModel()
             let viewModel = AppAuthViewModel()
-            ContentView().environmentObject(viewModel)
+            let sheetModel = GlobalSheet()
+            ContentView()
+                .environmentObject(viewModel)
+                .environmentObject(roomConnectViewModel)
+                .environmentObject(friendConnectViewModel)
+                .environmentObject(sheetModel)
             
         }
     }
 }
+
