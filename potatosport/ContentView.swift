@@ -20,7 +20,8 @@ struct ContentView: View {
            }else{
                if authViewModel.signedIn {
                    if rooomConnectModel.isPlaying{
-                       GameRunView()
+                       Text("開始偵測身體")
+//                       GameRunView()
                       //
                    }else{
                        //RunActionView()

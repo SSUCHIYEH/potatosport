@@ -74,6 +74,40 @@ struct MainView: View {
         }
     }
     
+    // 監聽好友房間 (有無配對)
+    func observeFriendRoom(){
+        var ref = Database.database().reference()
+        ref.child("friendRooms").child(friendConnectViewModel.friendRoomId).observe(.value) { snapshot in
+            if snapshot.exists(){
+                let snap = snapshot as! DataSnapshot
+                let dict = snap.value as! [String:Any]
+                if dict["leaderId"] == nil {
+                    // 房主離開房間消失
+                    friendConnectViewModel.exitFriendRoom(getOut:true)
+                }else {
+//                    let users = dict["users"] as! [String:Any]
+                    if dict["users"] != nil {
+                        let users = dict["users"] as! [String:Any]
+                        for u in users {
+                            let info = u.value as! [String:Any]
+                            let id = info["id"] as! String
+                            let name = info["userName"] as! String
+                            let docs = UserPlayer(id: id, userName: name, point: 0, time: 0, ready: false)
+                            friendConnectViewModel.selfPlyaers[id] = docs
+                        }
+                    }
+                    // 房長告訴大家有房間了 開始監聽
+                    let hasRoom = dict["hasRoom"] as! Bool
+                    if hasRoom {
+                        self.roomConnectViewModel.hasRoom = true
+                        self.roomConnectViewModel.roomId = dict["roomId"] as! String
+                        self.roomConnectViewModel.observerRoomFill()
+                    }
+                }
+            }
+        }
+    }
+    
     
     var body: some View {
         ZStack(alignment:.center) {
@@ -123,7 +157,9 @@ struct MainView: View {
                 SelectmodeView(showSelectmodeView:self.$showSelectmodeView)
             }
            // LoadingView()
-            
+            if self.roomConnectViewModel.hasRoom && self.roomConnectViewModel.fill != true {
+                    LoadingView()
+            }
             
         }
         .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
@@ -134,8 +170,12 @@ struct MainView: View {
         }
         .alert(isPresented: $initedAlert){
             Alert(
-                title: Text("\(self.invitedInfo.leaderName)邀請你一起運動)"),primaryButton: .default(Text("接受"),action: {
+                title: Text("\(self.invitedInfo.leaderName)邀請你一起運動"),primaryButton: .default(Text("接受"),action: {
                     var ref = Database.database().reference()
+                    
+                    // API:接受好友房間邀請
+                    self.roomConnectViewModel.frRoomId = self.friendConnectViewModel.friendRoomId
+                    
                     self.friendConnectViewModel.acceptInviteGame(inviteRoomId: invitedInfo.inviteRoomId, myId: self.authViewModel.userId, myName: self.authViewModel.userName, leaderId: invitedInfo.leaderId, leaderName: invitedInfo.leaderName)
                     ref.child("inviteRoom").child("\(authViewModel.userId)").removeValue()
                 }),secondaryButton: .default(Text("拒絕"),action: {
@@ -145,11 +185,11 @@ struct MainView: View {
                 })
             )
         }
-        .alert(isPresented: $globalSheet.visible) {
-            Alert(
-                title: Text(globalSheet.getContent())
-            )
-        }
+//        .alert(isPresented: $globalSheet.visible) {
+//            Alert(
+//                title: Text(globalSheet.getContent())
+//            )
+//        }
         
     }
 }
@@ -218,10 +258,31 @@ struct MainUIView: View {
                         
                     })
                     Button(action: {
-                        self.roomConnectViewModel.searchRoom(mode: self.mode)
+                        if friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom {
+                            self.roomConnectViewModel.selfPlyaers = self.friendConnectViewModel.selfPlyaers
+                            self.roomConnectViewModel.searchRoom(mode: self.mode)
+                        }
+                        else if friendConnectViewModel.isLeader && roomConnectViewModel.hasRoom{
+                            self.roomConnectViewModel.outRoom()
+                        }
+                        else if !friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom{
+                            self.friendConnectViewModel.exitFriendRoom(getOut: false)
+                        }
+                       
                     }, label: {
                         HStack{
-                            ButtonView(button: Btn(name: "開始遊戲", width: 174, height: 50.4,fontsize: 20))
+                            if friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom {
+                                ButtonView(button: Btn(name: "開始遊戲", width: 174, height: 50.4,fontsize: 20))
+                            }
+                            else if friendConnectViewModel.isLeader && roomConnectViewModel.hasRoom{
+                                ButtonView(button: Btn(name: "取消配對", width: 174, height: 50.4,fontsize: 20))
+                            }
+                            else if !friendConnectViewModel.isLeader && roomConnectViewModel.hasRoom{
+                                ButtonView(button: Btn(name: "配對中", width: 174, height: 50.4,fontsize: 20))
+                            }
+                            else if !friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom{
+                                ButtonView(button: Btn(name: "退出房間", width: 174, height: 50.4,fontsize: 20))
+                            }
                             HStack{}.frame(width:6)
                         }
                     })

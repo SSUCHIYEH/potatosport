@@ -94,7 +94,7 @@ class friendCoonectViewModel: ObservableObject {
         ]
         ref.child("inviteRoom").child(frId).setValue(docs)
         self.leaderId = myId
-        self.observeFriendRoom()
+//        self.observeFriendRoom()
         
     }
     
@@ -133,46 +133,52 @@ class friendCoonectViewModel: ObservableObject {
                 let dict = [
                     "users":users,
                     "leaderId":leaderId,
+                    "hasRoom":false,
+                    "roomId":""
                 ] as [String : Any]
                 
                 //第一個被邀請的人建立好友房
                 ref.child("friendRooms").child(inviteRoomId).setValue(dict)
             }
         }
+        self.isLeader = false
         self.friendRoomId = inviteRoomId
-        self.observeFriendRoom()
+//        self.observeFriendRoom()
         // 移除邀請進房資料
         ref.child("inviteRoom").child(myId).removeValue()
         
     }
-                                                            
-    func observeFriendRoom(){
-        var ref = Database.database().reference()
-        ref.child("friendRooms").child(self.friendRoomId).observe(.value) { snapshot in
-            self.selfPlyaers = [String: UserPlayer]()
-            if snapshot.exists(){
-                let snap = snapshot as! DataSnapshot
-                let dict = snap.value as! [String:Any]
-                if dict["leaderId"] == nil {
-                    // 房主離開房間消失
-                    self.exitFriendRoom(getOut:true)
-                }else {
-//                    let users = dict["users"] as! [String:Any]
-                    if dict["users"] != nil {
-                        let users = dict["users"] as! [String:Any]
-                        for u in users {
-                            let info = u.value as! [String:Any]
-                            let id = info["id"] as! String
-                            let name = info["userName"] as! String
-                            let docs = UserPlayer(id: id, userName: name, point: 0, time: 0, ready: false)
-                            self.selfPlyaers[id] = docs
-                        }
-                    }
-                }
-            }
-        }
-    }
     
+//    // 監聽好友房間 (有無配對)
+//    func observeFriendRoom(){
+//        var ref = Database.database().reference()
+//        ref.child("friendRooms").child(self.friendRoomId).observe(.value) { snapshot in
+//            self.selfPlyaers = [String: UserPlayer]()
+//            if snapshot.exists(){
+//                let snap = snapshot as! DataSnapshot
+//                let dict = snap.value as! [String:Any]
+//                if dict["leaderId"] == nil {
+//                    // 房主離開房間消失
+//                    self.exitFriendRoom(getOut:true)
+//                }else {
+////                    let users = dict["users"] as! [String:Any]
+//                    if dict["users"] != nil {
+//                        let users = dict["users"] as! [String:Any]
+//                        for u in users {
+//                            let info = u.value as! [String:Any]
+//                            let id = info["id"] as! String
+//                            let name = info["userName"] as! String
+//                            let docs = UserPlayer(id: id, userName: name, point: 0, time: 0, ready: false)
+//                            self.selfPlyaers[id] = docs
+//                        }
+//                    }
+//                    let hasRoom = dict["hasRoom"] as! Bool
+//                }
+//            }
+//        }
+//    }
+    
+    // 離開好友房間
     func exitFriendRoom(getOut:Bool){
         var ref = Database.database().reference()
         ref.child("friendRooms").child(friendRoomId).child("users").child(myId).removeValue()
