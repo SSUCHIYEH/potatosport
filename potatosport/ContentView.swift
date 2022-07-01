@@ -45,6 +45,20 @@ struct ContentView: View {
         }
         
     }
+//    =======
+//        @State private var isPlaying = true
+//        var body: some View {
+//
+//            if isPlaying{
+//                GameRunView(isPlaying: self.$isPlaying)
+//            }else{
+//                //RunActionView()
+//                MainView(isPlaying: self.$isPlaying)
+//                    .onAppear{
+//                        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue,forKey: "orientation")
+//                        AppDelegate.orientationLock = .landscapeRight
+//                    }
+//    >>>>>>> mainView
 
         //        NavigationView{
         //            if authViewModel.authLoading {

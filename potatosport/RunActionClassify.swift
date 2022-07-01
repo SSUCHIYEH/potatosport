@@ -58,6 +58,7 @@ class RunActionViewController: UIViewController{
 
 
 extension RunActionViewController: PredictorDelegate {
+
     func predictor(_ predictor: RunPredictor, didLabelAction action: String, with confidence: Double) {
 //        print(action)
 //        if action == "run" {
@@ -73,11 +74,15 @@ extension RunActionViewController: PredictorDelegate {
 //
 //        }
         if action == "run" {
-//            pos=pos-0.2
+            running = true
+            if startgame{
+              pos=pos-0.1
+            }
             print("run!!!!!!!!!!!!!")
-        }else{
             
+        }else{
             print("none")
+            scanbody = true
         }
     }
 
