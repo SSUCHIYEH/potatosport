@@ -8,6 +8,7 @@
 import SwiftUI
 struct SelectmodeView: View {
     @Binding var showSelectmodeView:Bool
+    @EnvironmentObject var roomConnectViewModel:roomsConnetModel
     
     var body: some View {
         ZStack{
@@ -34,10 +35,12 @@ struct SelectmodeView: View {
                         }.frame(width:512)
                         HStack(spacing:20){
                             Button(action: {
+                                self.roomConnectViewModel.mode = "mode1"
                             }, label: {
                                 ButtonView(button: Btn(name: "對戰", width: 78, height: 40,fontsize:16))
                             })
                             Button(action: {
+                                self.roomConnectViewModel.mode = "mode2"
                             }, label: {
                                 ButtonView(button: Btn(name: "吃雞", width: 78, height: 40,fontsize:16))
                             })

@@ -260,7 +260,7 @@ struct MainUIView: View {
                     Button(action: {
                         if friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom {
                             self.roomConnectViewModel.selfPlyaers = self.friendConnectViewModel.selfPlyaers
-                            self.roomConnectViewModel.searchRoom(mode: self.mode)
+                            self.roomConnectViewModel.searchRoom()
                         }
                         else if friendConnectViewModel.isLeader && roomConnectViewModel.hasRoom{
                             self.roomConnectViewModel.outRoom()

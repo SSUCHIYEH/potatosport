@@ -21,7 +21,7 @@ struct ContentView: View {
                if authViewModel.signedIn {
                    if rooomConnectModel.isPlaying{
                        Text("開始偵測身體")
-//                       GameRunView()
+                       GameRunView(isPlaying: self.$rooomConnectModel.isPlaying)
                       //
                    }else{
                        //RunActionView()
