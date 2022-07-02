@@ -16,18 +16,18 @@
 		6F5EC508286372120042BC0F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC507286372120042BC0F /* FirebaseFirestore */; };
 		6F5EC50A286372120042BC0F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC509286372120042BC0F /* FirebaseFirestoreSwift */; };
 		6F5EC50C286372120042BC0F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC50B286372120042BC0F /* FirebaseStorage */; };
-		D97EFFB928707AE100438F54 /* player.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFAD28707AE000438F54 /* player.dae */; };
-		D97EFFBA28707AE100438F54 /* fence.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFAE28707AE000438F54 /* fence.dae */; };
-		D97EFFBB28707AE100438F54 /* Game.scn in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFAF28707AE100438F54 /* Game.scn */; };
-		D97EFFBC28707AE100438F54 /* ghost.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB028707AE100438F54 /* ghost.dae */; };
-		D97EFFBD28707AE100438F54 /* comicSkyBox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB128707AE100438F54 /* comicSkyBox.jpeg */; };
-		D97EFFBE28707AE100438F54 /* player1.scn in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB228707AE100438F54 /* player1.scn */; };
-		D97EFFBF28707AE100438F54 /* tree.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB328707AE100438F54 /* tree.dae */; };
-		D97EFFC028707AE100438F54 /* cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB428707AE100438F54 /* cloth.png */; };
-		D97EFFC128707AE100438F54 /* grass.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB528707AE100438F54 /* grass.dae */; };
-		D97EFFC228707AE100438F54 /* thicket.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB628707AE100438F54 /* thicket.dae */; };
-		D97EFFC328707AE100438F54 /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB728707AE100438F54 /* skybox.png */; };
-		D97EFFC428707AE100438F54 /* ballDiffuse.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFB828707AE100438F54 /* ballDiffuse.jpeg */; };
+		D97EFFD128707DFD00438F54 /* comicSkyBox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */; };
+		D97EFFD228707DFD00438F54 /* fence.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC628707DF900438F54 /* fence.dae */; };
+		D97EFFD328707DFD00438F54 /* ghost.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC728707DF900438F54 /* ghost.dae */; };
+		D97EFFD428707DFD00438F54 /* player.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC828707DFC00438F54 /* player.dae */; };
+		D97EFFD528707DFD00438F54 /* player.scn in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC928707DFD00438F54 /* player.scn */; };
+		D97EFFD628707DFD00438F54 /* grass.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCA28707DFD00438F54 /* grass.dae */; };
+		D97EFFD728707DFD00438F54 /* Game.scn in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCB28707DFD00438F54 /* Game.scn */; };
+		D97EFFD828707DFD00438F54 /* thicket.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCC28707DFD00438F54 /* thicket.dae */; };
+		D97EFFD928707DFD00438F54 /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCD28707DFD00438F54 /* skybox.png */; };
+		D97EFFDA28707DFD00438F54 /* cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCE28707DFD00438F54 /* cloth.png */; };
+		D97EFFDB28707DFD00438F54 /* ballDiffuse.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCF28707DFD00438F54 /* ballDiffuse.jpeg */; };
+		D97EFFDC28707DFD00438F54 /* tree.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFD028707DFD00438F54 /* tree.dae */; };
 		D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C620285C84F100A34263 /* RunActionClassify.swift */; };
 		D981C623285C86C700A34263 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C622285C86C700A34263 /* VideoCapture.swift */; };
 		D981C627285CBCD100A34263 /* RunPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C626285CBCD100A34263 /* RunPredictor.swift */; };
@@ -68,18 +68,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D97EFFAD28707AE000438F54 /* player.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = player.dae; sourceTree = "<group>"; };
-		D97EFFAE28707AE000438F54 /* fence.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = fence.dae; sourceTree = "<group>"; };
-		D97EFFAF28707AE100438F54 /* Game.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Game.scn; sourceTree = "<group>"; };
-		D97EFFB028707AE100438F54 /* ghost.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = ghost.dae; sourceTree = "<group>"; };
-		D97EFFB128707AE100438F54 /* comicSkyBox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comicSkyBox.jpeg; sourceTree = "<group>"; };
-		D97EFFB228707AE100438F54 /* player1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = player1.scn; sourceTree = "<group>"; };
-		D97EFFB328707AE100438F54 /* tree.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = tree.dae; sourceTree = "<group>"; };
-		D97EFFB428707AE100438F54 /* cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloth.png; sourceTree = "<group>"; };
-		D97EFFB528707AE100438F54 /* grass.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = grass.dae; sourceTree = "<group>"; };
-		D97EFFB628707AE100438F54 /* thicket.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = thicket.dae; sourceTree = "<group>"; };
-		D97EFFB728707AE100438F54 /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skybox.png; sourceTree = "<group>"; };
-		D97EFFB828707AE100438F54 /* ballDiffuse.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballDiffuse.jpeg; sourceTree = "<group>"; };
+		D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = comicSkyBox.jpeg; path = ../../../tempsave/save/comicSkyBox.jpeg; sourceTree = "<group>"; };
+		D97EFFC628707DF900438F54 /* fence.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = fence.dae; path = ../../../tempsave/save/fence.dae; sourceTree = "<group>"; };
+		D97EFFC728707DF900438F54 /* ghost.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = ghost.dae; path = ../../../tempsave/save/ghost.dae; sourceTree = "<group>"; };
+		D97EFFC828707DFC00438F54 /* player.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = player.dae; path = ../../../tempsave/save/player.dae; sourceTree = "<group>"; };
+		D97EFFC928707DFD00438F54 /* player.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = player.scn; sourceTree = "<group>"; };
+		D97EFFCA28707DFD00438F54 /* grass.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = grass.dae; path = ../../../tempsave/save/grass.dae; sourceTree = "<group>"; };
+		D97EFFCB28707DFD00438F54 /* Game.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Game.scn; path = ../../../tempsave/save/Game.scn; sourceTree = "<group>"; };
+		D97EFFCC28707DFD00438F54 /* thicket.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = thicket.dae; path = ../../../tempsave/save/thicket.dae; sourceTree = "<group>"; };
+		D97EFFCD28707DFD00438F54 /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = ../../../tempsave/save/skybox.png; sourceTree = "<group>"; };
+		D97EFFCE28707DFD00438F54 /* cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloth.png; path = ../../../tempsave/save/cloth.png; sourceTree = "<group>"; };
+		D97EFFCF28707DFD00438F54 /* ballDiffuse.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ballDiffuse.jpeg; path = ../../../tempsave/save/ballDiffuse.jpeg; sourceTree = "<group>"; };
+		D97EFFD028707DFD00438F54 /* tree.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = tree.dae; path = ../../../tempsave/save/tree.dae; sourceTree = "<group>"; };
 		D981C620285C84F100A34263 /* RunActionClassify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActionClassify.swift; sourceTree = "<group>"; };
 		D981C622285C86C700A34263 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D981C626285CBCD100A34263 /* RunPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPredictor.swift; sourceTree = "<group>"; };
@@ -143,18 +143,18 @@
 		D97EFFAC28707AD100438F54 /* art.scnassets */ = {
 			isa = PBXGroup;
 			children = (
-				D97EFFB828707AE100438F54 /* ballDiffuse.jpeg */,
-				D97EFFB428707AE100438F54 /* cloth.png */,
-				D97EFFB128707AE100438F54 /* comicSkyBox.jpeg */,
-				D97EFFAE28707AE000438F54 /* fence.dae */,
-				D97EFFAF28707AE100438F54 /* Game.scn */,
-				D97EFFB028707AE100438F54 /* ghost.dae */,
-				D97EFFB528707AE100438F54 /* grass.dae */,
-				D97EFFAD28707AE000438F54 /* player.dae */,
-				D97EFFB228707AE100438F54 /* player1.scn */,
-				D97EFFB728707AE100438F54 /* skybox.png */,
-				D97EFFB628707AE100438F54 /* thicket.dae */,
-				D97EFFB328707AE100438F54 /* tree.dae */,
+				D97EFFCF28707DFD00438F54 /* ballDiffuse.jpeg */,
+				D97EFFCE28707DFD00438F54 /* cloth.png */,
+				D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */,
+				D97EFFC628707DF900438F54 /* fence.dae */,
+				D97EFFCB28707DFD00438F54 /* Game.scn */,
+				D97EFFC728707DF900438F54 /* ghost.dae */,
+				D97EFFCA28707DFD00438F54 /* grass.dae */,
+				D97EFFC828707DFC00438F54 /* player.dae */,
+				D97EFFC928707DFD00438F54 /* player.scn */,
+				D97EFFCD28707DFD00438F54 /* skybox.png */,
+				D97EFFCC28707DFD00438F54 /* thicket.dae */,
+				D97EFFD028707DFD00438F54 /* tree.dae */,
 			);
 			path = art.scnassets;
 			sourceTree = "<group>";
@@ -301,21 +301,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97EFFBB28707AE100438F54 /* Game.scn in Resources */,
-				D97EFFC328707AE100438F54 /* skybox.png in Resources */,
+				D97EFFDA28707DFD00438F54 /* cloth.png in Resources */,
 				D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */,
-				D97EFFBC28707AE100438F54 /* ghost.dae in Resources */,
-				D97EFFBE28707AE100438F54 /* player1.scn in Resources */,
-				D97EFFC228707AE100438F54 /* thicket.dae in Resources */,
-				D97EFFBF28707AE100438F54 /* tree.dae in Resources */,
-				D97EFFBA28707AE100438F54 /* fence.dae in Resources */,
+				D97EFFD528707DFD00438F54 /* player.scn in Resources */,
+				D97EFFD228707DFD00438F54 /* fence.dae in Resources */,
+				D97EFFD628707DFD00438F54 /* grass.dae in Resources */,
 				D99372332852E7EB000D2397 /* Assets.xcassets in Resources */,
-				D97EFFC028707AE100438F54 /* cloth.png in Resources */,
+				D97EFFD928707DFD00438F54 /* skybox.png in Resources */,
+				D97EFFDB28707DFD00438F54 /* ballDiffuse.jpeg in Resources */,
 				D981C67128621AF400A34263 /* GoogleService-Info.plist in Resources */,
-				D97EFFC428707AE100438F54 /* ballDiffuse.jpeg in Resources */,
-				D97EFFC128707AE100438F54 /* grass.dae in Resources */,
-				D97EFFB928707AE100438F54 /* player.dae in Resources */,
-				D97EFFBD28707AE100438F54 /* comicSkyBox.jpeg in Resources */,
+				D97EFFDC28707DFD00438F54 /* tree.dae in Resources */,
+				D97EFFD728707DFD00438F54 /* Game.scn in Resources */,
+				D97EFFD328707DFD00438F54 /* ghost.dae in Resources */,
+				D97EFFD428707DFD00438F54 /* player.dae in Resources */,
+				D97EFFD828707DFD00438F54 /* thicket.dae in Resources */,
+				D97EFFD128707DFD00438F54 /* comicSkyBox.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

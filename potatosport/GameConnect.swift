@@ -40,7 +40,7 @@ class gameConnectViewModel: ObservableObject{
                 }
                 self.players = dict["players"] as! Int
                 self.readyP = dict["allReady"] as! Int
-                if self.players == self.readyP {
+                if !self.allReady && self.players == self.readyP {
                     self.allReady = true
                     self.gameState = 4
                 }

@@ -26,6 +26,8 @@ struct GameRunView:View{
     @State private var showstart:Bool = false
     @State private var finish = false
     
+    
+    @State private var posZ:Float = 0
     @EnvironmentObject var roomConnetModel : roomsConnetModel
     
     @EnvironmentObject var gameConnect : gameConnectViewModel
@@ -187,27 +189,31 @@ struct GameRunView:View{
     
     //設定初始位置
     func InitPos(){
-        //print("-----> 設定初始位置")
-        SphereNode?.position = SCNVector3(-0.632,0,0)
+        print("-----> 設定初始位置")
+        SphereNode?.position = SCNVector3(-0.632,0,-3)
+        
 //        SphereNodeFr?.position = SCNVector3(1.06,0,0)
     }
     func UpdatePos() {
-        var ref = Database.database().reference()
-        ref.child("rooms").child(self.gameConnect.roomId).child("users").child(self.gameConnect.myId).updateChildValues([
-            "point":pos
-        ])
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            //print("-----> UpdatePos")
+//        var ref = Database.database().reference()
+        self.posZ = pos
+        SphereNode?.position = SCNVector3(-0.632,0,self.posZ)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             
-            if pos >= -5 {
-                print(pos)
-//                SphereNodeFr?.position = SCNVector3(1.06,0,self.gameConnect.frUserPos)
-                SphereNode?.position = SCNVector3(-0.632,0,pos)
-            } else{
+            if pos < -3 {
                 self.finish = true
                 self.gameConnect.gameState = 5
+                
+            } else{
+//                ref.child("rooms").child(self.gameConnect.roomId).child("users").child(self.gameConnect.myId).updateChildValues([
+//                    "point":pos
+//                ])
+                pos -= 0.1
+                print(self.posZ)
+                
+                UpdatePos()
             }
-            UpdatePos()
+            
         }
     }
 }
