@@ -61,15 +61,10 @@ class gameConnectViewModel: ObservableObject{
     }
     
     // 增加分數
-    func addPoint(){
+    func addPoint(posZ:Float){
         var ref = Database.database().reference()
-        self.point = self.point + 10
-        
-//      if(point > 終點){
-//            "time":self.timer
-//    }
         ref.child("rooms").child(self.roomId).child("users").child(self.myId).updateChildValues([
-            "point":self.point,
+            "point":posZ
         ])
     }
     

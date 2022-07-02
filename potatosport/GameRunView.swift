@@ -14,6 +14,16 @@ var pos:Float = 0
 var scanbody:Bool = false
 var running:Bool = false
 var startgame:Bool = false
+//
+//class sceneViewModel: ObservableObject{
+//    @Published var scene = SCNScene(named: "Game.scn")
+//    @Published var cameraNode:SCNNode?{
+//        scene?.rootNode.childNode(withName: "camera", recursively: false)
+//    }
+//    @Published var SphereNode:SCNNode?{
+//        scene?.rootNode.childNode(withName: "player", recursively: false)
+//    }
+//}
 
 struct GameRunView:View{
     @Binding var isPlaying:Bool
@@ -81,19 +91,19 @@ struct GameRunView:View{
                             .frame(width: 680, height: 63)
                             .background(Color("yellow_500").opacity(0.5))
                             .cornerRadius(10)
-//                            .onAppear{
-//                                DispatchQueue.main.asyncAfter(deadline:.now()+5){
-//                                    gameConnect.gameState = 4
-//                                    print("switch state to \(gameConnect.gameState)")
-//                                }
-//                            }
+                            .onAppear{
+                                DispatchQueue.main.asyncAfter(deadline:.now()+5){
+                                    self.gameConnect.gameState = 4
+                                    print("switch state to \(gameConnect.gameState)")
+                                }
+                            }
                     }
                     if self.gameConnect.gameState == 4{
                         ZStack{
                             SceneView(
                                 scene:scene,
-                                pointOfView:cameraNode
-//                                options:[.allowsCameraControl]
+                                pointOfView:cameraNode,
+                                options:[.allowsCameraControl]
                             ).frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                             if self.show3{
                                 Image("game_3")
@@ -164,7 +174,7 @@ struct GameRunView:View{
             if self.roomConnetModel.selfPlyaers.count < 2 {
                 self.gameConnect.single = true
             }
-            self.gameConnect.observeGamePoint()
+//            self.gameConnect.observeGamePoint()
             self.CheckGameState()
         }
         
@@ -187,35 +197,55 @@ struct GameRunView:View{
         }
     }
     
+//    //設定初始位置
+//    func InitPos(){
+//        SphereNode?.position = SCNVector3(-0.632,0,0)
+////        SphereNodeFr?.position = SCNVector3(1.06,0,0)
+//    }
+//
+//    func UpdatePos() {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//            //print("-----> UpdatePos")
+//            SphereNode?.position = SCNVector3(-0.632,0,pos)
+////            self.gameConnect.addPoint(posZ: pos)
+//            if pos < -3 {
+//                self.finish = true
+//            }
+//            UpdatePos()
+//        }
+//    }
     //設定初始位置
-    func InitPos(){
-        print("-----> 設定初始位置")
-        SphereNode?.position = SCNVector3(-0.632,0,-3)
-        
-//        SphereNodeFr?.position = SCNVector3(1.06,0,0)
-    }
-    func UpdatePos() {
-//        var ref = Database.database().reference()
-        self.posZ = pos
-        SphereNode?.position = SCNVector3(-0.632,0,self.posZ)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            
-            if pos < -3 {
-                self.finish = true
-                self.gameConnect.gameState = 5
-                
-            } else{
-//                ref.child("rooms").child(self.gameConnect.roomId).child("users").child(self.gameConnect.myId).updateChildValues([
-//                    "point":pos
-//                ])
-                pos -= 0.1
-                print(self.posZ)
-                
-                UpdatePos()
-            }
-            
+        func InitPos(){
+            print("-----> 設定初始位置")
+            SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:0)
         }
-    }
+        func UpdatePos() {
+            
+            
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+                // Your function here
+                print("UpdatePos",pos,self.gameConnect.gameState)
+                if pos < -3 {
+                    self.finish = true
+                    SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:-3.0)
+                    timer.invalidate()
+                }else{
+                    SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:pos)
+                }
+           
+            })
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                //print("-----> UpdatePos")
+//                if pos < -3 {
+//                    self.finish = true
+//                    SphereNode?.position = SCNVector3(-0.632,0,-3)
+//                }else{
+//                    SphereNode?.position = SCNVector3(-0.632,0,pos)
+//                    UpdatePos()
+//                }
+//
+//            }
+        }
 }
 
 
