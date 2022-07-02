@@ -16,6 +16,7 @@ struct Btn{
     let fontsize:CGFloat
 }
 struct ButtonView: View{
+    @EnvironmentObject var roomConnect: roomsConnetModel
     let button : Btn
     var body: some View {
         VStack{
@@ -28,8 +29,15 @@ struct ButtonView: View{
                 ZStack(alignment: .center){
                     //黃色button
                     ZStack {
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(Color("yellow_main"))
+                        if(button.name == "對戰" && roomConnect.mode == "mode2") || (button.name == "吃雞" && roomConnect.mode == "mode1") {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color("green"))
+                        }
+                        else{
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color("yellow_main"))
+                        }
+                        
                         RoundedRectangle(cornerRadius: 5)
                             .strokeBorder(Color("white"), lineWidth: 4)
                     }

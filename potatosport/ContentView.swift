@@ -16,11 +16,13 @@ struct ContentView: View {
     var body: some View {
         VStack{
             if authViewModel.authLoading {
-               Text("連線中...")
+                Image("launch_bg")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
            }else{
                if authViewModel.signedIn {
                    if rooomConnectModel.isPlaying{
-                       Text("開始偵測身體")
                        GameRunView(isPlaying: self.$rooomConnectModel.isPlaying)
                       //
                    }else{
@@ -35,7 +37,13 @@ struct ContentView: View {
                        }
                    }
                } else {
-                   SignInView()
+                   SignInView().onAppear{
+                       UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue,forKey: "orientation")
+                       AppDelegate.orientationLock = .landscapeRight
+                   }
+                   .onDisappear{
+                       AppDelegate.orientationLock = .all
+                   }
                }
            }
         }

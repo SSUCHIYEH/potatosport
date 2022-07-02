@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SceneKit
+import FirebaseDatabase
+import FirebaseDatabaseSwift
 
 var pos:Float = 0
 var scanbody:Bool = false
@@ -16,12 +18,17 @@ var startgame:Bool = false
 struct GameRunView:View{
     @Binding var isPlaying:Bool
     
-    @State private var GameState:Int = 0
+//    @State private var GameState:Int = 0
     
     @State private var show3:Bool = true
     @State private var show2:Bool = false
     @State private var show1:Bool = false
     @State private var showstart:Bool = false
+    @State private var finish = false
+    
+    @EnvironmentObject var roomConnetModel : roomsConnetModel
+    
+    @EnvironmentObject var gameConnect : gameConnectViewModel
     
     //取得場景物件
     var scene = SCNScene(named: "Game.scn")
@@ -31,16 +38,22 @@ struct GameRunView:View{
     var SphereNode:SCNNode?{
         scene?.rootNode.childNode(withName: "player", recursively: false)
     }
+//    var SphereNodeFr:SCNNode?{
+//        scene?.rootNode.childNode(withName: "player1", recursively: false)
+//    }
     
     var body: some View{
         ZStack{
-            if GameState == 0{
-                IntroView(GameState: self.$GameState)
+            if self.gameConnect.gameState == 0{
+                IntroView()
             }
-            if GameState == 1 || GameState == 2 || GameState == 3 || GameState == 4{
+            if self.gameConnect.gameState == 5{
+                FinalView()
+            }
+            if self.gameConnect.gameState != 5 && self.gameConnect.gameState != 0 {
                 ZStack(alignment: .center){
                     RunActionView()
-                    if GameState == 1{
+                    if self.gameConnect.gameState == 1{
                         Text("請讓鏡頭能夠偵測到您的全身")
                             .foregroundColor(Color("white"))
                             .fontWeight(.black)
@@ -49,7 +62,7 @@ struct GameRunView:View{
                             .background(Color.black.opacity(0.6))
                             .cornerRadius(10)
                     }
-                    if GameState == 2{
+                    if self.gameConnect.gameState == 2{
                         Text("做得好！\n接著，來試試看提膝奔跑吧！")
                             .foregroundColor(Color("white"))
                             .fontWeight(.black)
@@ -58,7 +71,7 @@ struct GameRunView:View{
                             .background(Color("lightgreen").opacity(0.8))
                             .cornerRadius(10)
                     }
-                    if GameState == 3{
+                    if self.gameConnect.gameState == 3{
                         Text("太棒了！比賽即將開始！")
                             .foregroundColor(Color("white"))
                             .fontWeight(.black)
@@ -66,19 +79,19 @@ struct GameRunView:View{
                             .frame(width: 680, height: 63)
                             .background(Color("yellow_500").opacity(0.5))
                             .cornerRadius(10)
-                            .onAppear{
-                                DispatchQueue.main.asyncAfter(deadline:.now()+5){
-                                    GameState = 4
-                                    print("switch state to \(self.GameState)")
-                                }
-                            }
+//                            .onAppear{
+//                                DispatchQueue.main.asyncAfter(deadline:.now()+5){
+//                                    gameConnect.gameState = 4
+//                                    print("switch state to \(gameConnect.gameState)")
+//                                }
+//                            }
                     }
-                    if GameState == 4{
+                    if self.gameConnect.gameState == 4{
                         ZStack{
                             SceneView(
                                 scene:scene,
-                                pointOfView:cameraNode,
-                                options:[.allowsCameraControl]
+                                pointOfView:cameraNode
+//                                options:[.allowsCameraControl]
                             ).frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                             if self.show3{
                                 Image("game_3")
@@ -118,20 +131,38 @@ struct GameRunView:View{
                                         startgame = true
                                         self.InitPos()
                                         self.UpdatePos()
+                                        self.gameConnect.gameClock()
                                     }
                                     
                                 }
                             }
+                            if startgame == true {
+                                if finish {
+                                    StrokeText(text: "抵達終點", width: 5, borderColor: Color.white, fontColor: Color("yellow_main"))
+                                }else{
+                                    StrokeText(text: String(self.gameConnect.time), width: 5, borderColor: Color.white, fontColor: Color("yellow_main"))
+                                }
+                                    
+                                    
+                            }
+                            
                                 
                         }
                         
                     }
                 }
             }
-            if GameState == 5{
-                FinalView(isPlaying: self.$isPlaying, GameState: self.$GameState)
-            }
+            
         }.onAppear{
+            var ref = Database.database().reference()
+            ref.child("rooms").removeAllObservers()
+            self.gameConnect.roomId = self.roomConnetModel.roomId
+            self.gameConnect.myId = self.roomConnetModel.myId
+            // 是不是單人玩
+            if self.roomConnetModel.selfPlyaers.count < 2 {
+                self.gameConnect.single = true
+            }
+            self.gameConnect.observeGamePoint()
             self.CheckGameState()
         }
         
@@ -140,13 +171,14 @@ struct GameRunView:View{
     func CheckGameState(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             //print("CheckGameState")
-            if scanbody == true && self.GameState == 1{
-                self.GameState = 2
-                print("switch state to \(self.GameState)")
+            if scanbody == true && gameConnect.gameState == 1{
+                gameConnect.gameState = 2
+                print("switch state to \(gameConnect.gameState)")
             }
-            if running == true && self.GameState == 2{
-                self.GameState = 3
-                print("switch state to \(self.GameState)")
+            if running == true && gameConnect.gameState == 2{
+                gameConnect.gameState = 3
+                self.gameConnect.setReady()
+                print("switch state to \(gameConnect.gameState)")
             }
             CheckGameState()
             
@@ -157,16 +189,50 @@ struct GameRunView:View{
     func InitPos(){
         //print("-----> 設定初始位置")
         SphereNode?.position = SCNVector3(-0.632,0,0)
+//        SphereNodeFr?.position = SCNVector3(1.06,0,0)
     }
     func UpdatePos() {
+        var ref = Database.database().reference()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             //print("-----> UpdatePos")
-            SphereNode?.position = SCNVector3(-0.632,0,pos)
-            if pos < -3 {
-                self.GameState = 5
+            ref.child("rooms").child(self.gameConnect.roomId).child("users").child(self.gameConnect.myId).updateChildValues([
+                "point":pos
+            ])
+            if pos >= -5 {
+                print(pos)
+//                SphereNodeFr?.position = SCNVector3(1.06,0,self.gameConnect.frUserPos)
+                SphereNode?.position = SCNVector3(-0.632,0,pos)
+                UpdatePos()
+                
+            } else{
+                self.finish = true
+                self.gameConnect.gameState = 5
             }
-            UpdatePos()
         }
+    }
+}
+
+
+struct StrokeText: View {
+    let text:String
+    let width:CGFloat
+    let borderColor:Color
+    let fontColor:Color
+    
+    var body: some View{
+        ZStack{
+            ZStack{
+                Text(text).offset(x: width, y: width)
+                Text(text).offset(x: -width, y: width)
+                Text(text).offset(x: width, y: -width)
+                Text(text).offset(x: -width, y: -width)
+            }
+            .foregroundColor(borderColor)
+            .font(.system(size:48,weight: .bold))
+            Text(text)
+                .foregroundColor(fontColor)
+                .font(.system(size:48,weight: .bold))
+        }.padding(.bottom, 200.0)
     }
 }
 

@@ -40,11 +40,15 @@ struct potatosportApp: App {
             let friendConnectViewModel = friendCoonectViewModel()
             let viewModel = AppAuthViewModel()
             let sheetModel = GlobalSheet()
+            let playerControl = musicControl()
+            let gameConnect = gameConnectViewModel()
             ContentView()
                 .environmentObject(viewModel)
                 .environmentObject(roomConnectViewModel)
                 .environmentObject(friendConnectViewModel)
                 .environmentObject(sheetModel)
+                .environmentObject(playerControl)
+                .environmentObject(gameConnect)
             
         }
     }

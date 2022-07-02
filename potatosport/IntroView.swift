@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct IntroView:View{
-    @Binding var GameState:Int
+    @EnvironmentObject var gameConnect : gameConnectViewModel
+//    @Binding var GameState:Int
     var body: some View{
         ZStack(alignment: .center){
             Image("intro_bg")
@@ -20,8 +21,7 @@ struct IntroView:View{
                     .resizable()
                     .frame(width: 598, height:323 )
                 Button(action: {
-                    self.GameState = 1
-                    print(GameState)
+                    self.gameConnect.gameState = 1
                 }, label: {
                     HStack{
                         ButtonView(button: Btn(name: "知道了", width: 128, height: 55,fontsize:20))

@@ -28,6 +28,7 @@ struct MainView: View {
     // sheet 資料
     @EnvironmentObject var globalSheet: GlobalSheet
     
+    @EnvironmentObject var playerControl: musicControl
     
 //    @Binding var isPlaying:Bool
     
@@ -39,6 +40,7 @@ struct MainView: View {
     @State private var invitedInfo = invitedToFriendRoom(leaderId: "", inviteRoomId: "", leaderName: "")
     
     @State private var initedAlert = false
+    
     
     func initObserve(){
         //--------  好友邀請監聽  ----------//
@@ -123,33 +125,26 @@ struct MainView: View {
                         ForEach(Array(self.friendConnectViewModel.selfPlyaers.keys.enumerated()),id:\.element) { _, key in
                             if(key != self.authViewModel.userId){
                                 Image("main_player")
-                                    .resizable(capInsets: EdgeInsets(top: 100.0, leading: 100.0, bottom: 100.0, trailing: 100.0))
-            //                        .scaledToFill()
-                                    .offset(x: -150, y: 30)
+                                    .resizable(capInsets: EdgeInsets(top: -50, leading: 0, bottom: 50, trailing: 0))
+                                .offset(x: -150, y: 10)
                                 Text(friendConnectViewModel.selfPlyaers[key]?.userName ?? "")
-                                    .offset(x: -120, y: -60)
+                                    .foregroundColor(Color("dark"))
+                                    .offset(x: -120, y: -80)
                             }
                         }
                     }
                 }
+
                
                 Image("main_player")
-                   // .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-                   // .frame(width: 896, height: 414)
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-                    .offset(x: 10, y: 20)
+                    .offset(x: 0, y: 20)
             }
-            
-            
-            
-            
-                
+  
             MainUIView(showAddFriendView: self.$showAddFriendView, showSelectmodeView:self.$showSelectmodeView)
-            
-            
-            
+
             if self.showAddFriendView{
                 AddFriendView(showAddFriendView: self.$showAddFriendView)
             }
@@ -185,11 +180,6 @@ struct MainView: View {
                 })
             )
         }
-//        .alert(isPresented: $globalSheet.visible) {
-//            Alert(
-//                title: Text(globalSheet.getContent())
-//            )
-//        }
         
     }
 }
@@ -206,6 +196,8 @@ struct MainUIView: View {
     @EnvironmentObject var roomConnectViewModel:roomsConnetModel
     //  朋友房間，朋友資訊
     @EnvironmentObject var friendConnectViewModel:friendCoonectViewModel
+    
+    @EnvironmentObject var playerControl:musicControl
     
     var body: some View {
         HStack(alignment:.top, spacing:50){
@@ -235,11 +227,17 @@ struct MainUIView: View {
                 HStack{}.frame(height:3)
                 Button(action: {
                    // print("open selectmode button")
-                    self.showSelectmodeView = true
                 }, label: {
                     ZStack(alignment: .center){
                         Image("main_changemode")
-                        Text("選擇模式").foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                        switch(self.roomConnectViewModel.mode){
+                        case "mode1":
+                            Text("吃雞模式").foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                        case "mode2":
+                            Text("對戰模式").foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                        default:
+                            Text("吃雞模式").foregroundColor(Color("dark")).tracking(2).fontWeight(.black)
+                        }
                     }
                 })
                 Spacer()
@@ -249,7 +247,17 @@ struct MainUIView: View {
                 Spacer()
                 VStack(alignment:.trailing , spacing:30 ){
                     Button(action: {
+                        self.playerControl.btnClickPlay()
+                        self.showSelectmodeView = true
+                    }, label: {
+                        HStack{
+                            ButtonView(button: Btn(name: "選擇模式", width: 112, height: 38.4,fontsize:14))
+                            HStack{}.frame(width:6)
+                        }
                         
+                    })
+                    Button(action: {
+                        self.playerControl.btnClickPlay()
                     }, label: {
                         HStack{
                             ButtonView(button: Btn(name: "建立房間", width: 112, height: 38.4,fontsize:14))
@@ -315,21 +323,23 @@ struct ModelView: View{
 //.frame(maxWidth: .infinity, maxHeight: .infinity)
 
 
-//struct MainView_Previews: PreviewProvider {
-//    static let authViewModel = AppAuthViewModel()
-//    //  配對房間資訊
-//    static let roomConnectViewModel = roomsConnetModel()
-//    //  朋友房間，朋友資訊
-//    static let friendConnectViewModel = friendCoonectViewModel()
-//    // sheet 資料
-//    static let globalSheet = GlobalSheet()
-//    @State static var show = true
-//    static var previews: some View {
-//        MainView()
-//            .environmentObject(authViewModel)
-//            .environmentObject(roomConnectViewModel)
-//            .environmentObject(friendConnectViewModel)
-//            .environmentObject(globalSheet)
-//            .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
+struct MainView_Previews: PreviewProvider {
+    static let authViewModel = AppAuthViewModel()
+    //  配對房間資訊
+    static let roomConnectViewModel = roomsConnetModel()
+    //  朋友房間，朋友資訊
+    static let friendConnectViewModel = friendCoonectViewModel()
+    // sheet 資料
+    static let globalSheet = GlobalSheet()
+    @State static var show = true
+    static var previews: some View {
+        Group {
+            MainView()
+                .environmentObject(authViewModel)
+                .environmentObject(roomConnectViewModel)
+                .environmentObject(friendConnectViewModel)
+                .environmentObject(globalSheet)
+                .previewInterfaceOrientation(.landscapeRight)
+        }
+    }
+}

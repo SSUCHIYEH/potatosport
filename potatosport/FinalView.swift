@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct FinalView:View{
-    @Binding var isPlaying:Bool
-    @Binding var GameState:Int
+    @EnvironmentObject var roomConnect: roomsConnetModel
+    @EnvironmentObject var gameConnect: gameConnectViewModel
+//    @Binding var isPlaying:Bool
+//    @Binding var GameState:Int
     var body: some View{
         ZStack{
             Image("final_bg")
@@ -55,8 +57,8 @@ struct FinalView:View{
                         startgame = false
                         scanbody = false
                         running = false
-                        self.isPlaying = false
-                        self.GameState = 0
+                        roomConnect.isPlaying = false
+                        gameConnect.gameState = 0
                         pos = 0
                     }, label: {
                         BackHomeBtnView()
