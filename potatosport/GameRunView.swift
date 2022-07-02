@@ -193,21 +193,21 @@ struct GameRunView:View{
     }
     func UpdatePos() {
         var ref = Database.database().reference()
+        ref.child("rooms").child(self.gameConnect.roomId).child("users").child(self.gameConnect.myId).updateChildValues([
+            "point":pos
+        ])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             //print("-----> UpdatePos")
-            ref.child("rooms").child(self.gameConnect.roomId).child("users").child(self.gameConnect.myId).updateChildValues([
-                "point":pos
-            ])
+            
             if pos >= -5 {
                 print(pos)
 //                SphereNodeFr?.position = SCNVector3(1.06,0,self.gameConnect.frUserPos)
                 SphereNode?.position = SCNVector3(-0.632,0,pos)
-                UpdatePos()
-                
             } else{
                 self.finish = true
                 self.gameConnect.gameState = 5
             }
+            UpdatePos()
         }
     }
 }
