@@ -11,6 +11,7 @@ struct FinalView:View{
     @EnvironmentObject var roomConnect: roomsConnetModel
     @EnvironmentObject var gameConnect: gameConnectViewModel
     @EnvironmentObject var musicControl: musicControl
+    @EnvironmentObject var authModel: AppAuthViewModel
     
 //    @Binding var isPlaying:Bool
 //    @Binding var GameState:Int
@@ -43,7 +44,7 @@ struct FinalView:View{
                 VStack{
                     Image("final_title")
                     Spacer()
-                    Text("空中時刻")
+                    Text("fakerPlayer")
                         .foregroundColor(Color("dark")).fontWeight(.black)
                 }
                 Spacer()
@@ -51,7 +52,7 @@ struct FinalView:View{
             VStack(){
                 Image("final_win")
                 Spacer()
-                Text("運動小胖丁")
+                Text(self.authModel.userName)
                     .foregroundColor(Color("dark")).fontWeight(.black)
             }
             HStack{

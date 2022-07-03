@@ -43,14 +43,15 @@ struct SelectmodeView: View {
                                 ButtonView(button: Btn(name: "吃雞", width: 78, height: 40,fontsize:16))
                             })
                             Button(action: {
-                                self.roomConnectViewModel.mode = "mode2"
-                                print(self.roomConnectViewModel.mode)
+//                                self.roomConnectViewModel.mode = "mode2"
+//                                print(self.roomConnectViewModel.mode)
                                 self.musicControl.btnClickPlay()
                             }, label: {
                                 ButtonView(button: Btn(name: "對戰", width: 78, height: 40,fontsize:16))
                             })
                             
                             Button(action: {
+                                self.musicControl.btnClickPlay()
                             }, label: {
                                 ButtonView(button: Btn(name: "合作", width: 78, height: 40,fontsize:16))
                             })

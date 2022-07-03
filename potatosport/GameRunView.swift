@@ -14,21 +14,9 @@ var pos:Float = 0
 var scanbody:Bool = false
 var running:Bool = false
 var startgame:Bool = false
-//
-//class sceneViewModel: ObservableObject{
-//    @Published var scene = SCNScene(named: "Game.scn")
-//    @Published var cameraNode:SCNNode?{
-//        scene?.rootNode.childNode(withName: "camera", recursively: false)
-//    }
-//    @Published var SphereNode:SCNNode?{
-//        scene?.rootNode.childNode(withName: "player", recursively: false)
-//    }
-//}
 
 struct GameRunView:View{
-    @Binding var isPlaying:Bool
-    
-//    @State private var GameState:Int = 0
+
     
     @State private var show3:Bool = true
     @State private var show2:Bool = false
@@ -36,8 +24,6 @@ struct GameRunView:View{
     @State private var showstart:Bool = false
     @State private var finish = false
     
-    
-    @State private var posZ:Float = 0
     @EnvironmentObject var roomConnetModel : roomsConnetModel
     
     @EnvironmentObject var gameConnect : gameConnectViewModel
@@ -169,8 +155,8 @@ struct GameRunView:View{
             }
             
         }.onAppear{
-            var ref = Database.database().reference()
-            ref.child("rooms").removeAllObservers()
+//            var ref = Database.database().reference()
+//            ref.child("rooms").removeAllObservers()
             self.gameConnect.roomId = self.roomConnetModel.roomId
             self.gameConnect.myId = self.roomConnetModel.myId
             // 是不是單人玩
@@ -266,17 +252,17 @@ struct StrokeText: View {
     
     var body: some View{
         ZStack{
-            ZStack{
-                Text(text).offset(x: width, y: width)
-                Text(text).offset(x: -width, y: width)
-                Text(text).offset(x: width, y: -width)
-                Text(text).offset(x: -width, y: -width)
-            }
-            .foregroundColor(borderColor)
-            .font(.system(size:48,weight: .bold))
+//            ZStack{
+//                Text(text).offset(x: width, y: width)
+//                Text(text).offset(x: -width, y: width)
+//                Text(text).offset(x: width, y: -width)
+//                Text(text).offset(x: -width, y: -width)
+//            }
+//            .foregroundColor(borderColor)
+//            .font(.system(size:48,weight: .bold))
             Text(text)
                 .foregroundColor(fontColor)
-                .font(.system(size:48,weight: .bold))
+                .font(.system(size:72,weight: .bold))
         }.padding(.bottom, 200.0)
     }
 }

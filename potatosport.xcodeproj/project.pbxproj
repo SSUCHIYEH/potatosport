@@ -20,6 +20,9 @@
 		D97D78DE28718C770003F8D7 /* main_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78DB28718C770003F8D7 /* main_bgm.mp3 */; };
 		D97D78DF28718C770003F8D7 /* game_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78DC28718C770003F8D7 /* game_bgm.mp3 */; };
 		D97D78E028718C770003F8D7 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78DD28718C770003F8D7 /* win.mp3 */; };
+		D97D78E328719CA20003F8D7 /* start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78E128719CA20003F8D7 /* start.mp3 */; };
+		D97D78E428719CA20003F8D7 /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78E228719CA20003F8D7 /* count.mp3 */; };
+		D97D78E62871A4590003F8D7 /* cancel1.wav in Resources */ = {isa = PBXBuildFile; fileRef = D97D78E52871A4590003F8D7 /* cancel1.wav */; };
 		D97EFFD128707DFD00438F54 /* comicSkyBox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */; };
 		D97EFFD228707DFD00438F54 /* fence.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC628707DF900438F54 /* fence.dae */; };
 		D97EFFD328707DFD00438F54 /* ghost.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC728707DF900438F54 /* ghost.dae */; };
@@ -78,6 +81,9 @@
 		D97D78DB28718C770003F8D7 /* main_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = main_bgm.mp3; path = "../../tempsave/未命名檔案夾/main_bgm.mp3"; sourceTree = "<group>"; };
 		D97D78DC28718C770003F8D7 /* game_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game_bgm.mp3; path = "../../tempsave/未命名檔案夾/game_bgm.mp3"; sourceTree = "<group>"; };
 		D97D78DD28718C770003F8D7 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = "../../tempsave/未命名檔案夾/win.mp3"; sourceTree = "<group>"; };
+		D97D78E128719CA20003F8D7 /* start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = start.mp3; sourceTree = "<group>"; };
+		D97D78E228719CA20003F8D7 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = count.mp3; sourceTree = "<group>"; };
+		D97D78E52871A4590003F8D7 /* cancel1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cancel1.wav; sourceTree = "<group>"; };
 		D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = comicSkyBox.jpeg; path = ../../../tempsave/save/comicSkyBox.jpeg; sourceTree = "<group>"; };
 		D97EFFC628707DF900438F54 /* fence.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = fence.dae; path = ../../../tempsave/save/fence.dae; sourceTree = "<group>"; };
 		D97EFFC728707DF900438F54 /* ghost.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = ghost.dae; path = ../../../tempsave/save/ghost.dae; sourceTree = "<group>"; };
@@ -193,6 +199,9 @@
 				D97D78DC28718C770003F8D7 /* game_bgm.mp3 */,
 				D97D78DB28718C770003F8D7 /* main_bgm.mp3 */,
 				D97D78DD28718C770003F8D7 /* win.mp3 */,
+				D97D78E228719CA20003F8D7 /* count.mp3 */,
+				D97D78E128719CA20003F8D7 /* start.mp3 */,
+				D97D78E52871A4590003F8D7 /* cancel1.wav */,
 				D97D78D728718C460003F8D7 /* finish.mp3 */,
 				D97EFFAC28707AD100438F54 /* art.scnassets */,
 				D98309FE286A187B00ACD623 /* MyActionClassifier 3.mlmodel */,
@@ -319,9 +328,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D97D78E428719CA20003F8D7 /* count.mp3 in Resources */,
 				D97EFFDA28707DFD00438F54 /* cloth.png in Resources */,
 				D99372362852E7EB000D2397 /* Preview Assets.xcassets in Resources */,
 				D97EFFD528707DFD00438F54 /* player.scn in Resources */,
+				D97D78E62871A4590003F8D7 /* cancel1.wav in Resources */,
 				D97EFFD228707DFD00438F54 /* fence.dae in Resources */,
 				D97EFFD628707DFD00438F54 /* grass.dae in Resources */,
 				D99372332852E7EB000D2397 /* Assets.xcassets in Resources */,
@@ -336,6 +347,7 @@
 				D97EFFD328707DFD00438F54 /* ghost.dae in Resources */,
 				D97D78DE28718C770003F8D7 /* main_bgm.mp3 in Resources */,
 				D97EFFD428707DFD00438F54 /* player.dae in Resources */,
+				D97D78E328719CA20003F8D7 /* start.mp3 in Resources */,
 				D97EFFD828707DFD00438F54 /* thicket.dae in Resources */,
 				D97EFFD128707DFD00438F54 /* comicSkyBox.jpeg in Resources */,
 			);

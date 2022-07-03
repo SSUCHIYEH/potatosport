@@ -11,7 +11,7 @@ class gameConnectViewModel: ObservableObject{
     @Published var users = [String: UserPlayer]()
     @Published var roomId = ""
     @Published var myId = ""
-    @Published var time = 10
+    @Published var time = 15
     @Published var reward = [String: Any]()
     @Published var gameState = 0
     @Published var allReady = false
