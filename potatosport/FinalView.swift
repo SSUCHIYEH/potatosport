@@ -10,22 +10,26 @@ import SwiftUI
 struct FinalView:View{
     @EnvironmentObject var roomConnect: roomsConnetModel
     @EnvironmentObject var gameConnect: gameConnectViewModel
+    @EnvironmentObject var musicControl: musicControl
+    
 //    @Binding var isPlaying:Bool
 //    @Binding var GameState:Int
+    let height = UIScreen.main.bounds.height
+    let width = UIScreen.main.bounds.width
     var body: some View{
         ZStack{
             Image("final_bg")
                 .resizable()
                 .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
             HStack(){
                 VStack(){
                     Spacer()
                     Image("final_loseplayer")
+                        
                 }
-                Spacer()
+                Spacer().frame(width: 500)
             }
-            .edgesIgnoringSafeArea(.bottom)
+            .frame(width: width, height: height)
             HStack{
                 HStack{}.frame(width: 200)
                 Image("final_cheer")
@@ -34,20 +38,21 @@ struct FinalView:View{
                 Spacer()
                 Image("final_winplayer")
             }
-            .edgesIgnoringSafeArea(.bottom)
+//            .edgesIgnoringSafeArea(.bottom)
             HStack{
                 VStack{
                     Image("final_title")
                     Spacer()
-                    Text("空中時刻").foregroundColor(Color("dark")).fontWeight(.black)
+                    Text("空中時刻")
+                        .foregroundColor(Color("dark")).fontWeight(.black)
                 }
                 Spacer()
-            }
+            }.frame(width: width, height: height)
             VStack(){
                 Image("final_win")
                 Spacer()
-                Text("運動小胖丁").foregroundColor(Color("dark")).fontWeight(.black)
-                
+                Text("運動小胖丁")
+                    .foregroundColor(Color("dark")).fontWeight(.black)
             }
             HStack{
                 Spacer()
@@ -57,14 +62,27 @@ struct FinalView:View{
                         startgame = false
                         scanbody = false
                         running = false
-                        roomConnect.isPlaying = false
-                        gameConnect.gameState = 0
+                        roomConnect.outRoom()
+                        gameConnect.resetGameInfo()
                         pos = 0
                     }, label: {
                         BackHomeBtnView()
                     })
+                   
                 }
-            }
+                Spacer().frame(width: 50)
+            }.frame(width: width, height: height)
+        }.onAppear{
+            self.musicControl.win()
+        }
+    }
+}
+
+struct FinalView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            FinalView()
+                .previewInterfaceOrientation(.landscapeLeft)
         }
     }
 }

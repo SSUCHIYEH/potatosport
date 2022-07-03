@@ -77,7 +77,7 @@ extension RunActionViewController: PredictorDelegate {
         if action == "run" {
             running = true
             if startgame{
-              pos = pos - 0.03
+              pos = pos - 0.1
             }
             print("run!!!!!!!!!!!!!")
             

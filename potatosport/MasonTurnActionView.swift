@@ -45,6 +45,8 @@ class MasonTurnViewController: UIViewController{
         
         view.layer.addSublayer(previewLayer)
         previewLayer.frame = view.frame
+        previewLayer.videoGravity = .resizeAspectFill
+        previewLayer.connection?.videoOrientation = .landscapeRight
         
         view.layer.addSublayer(pointsLayer)
         pointsLayer.frame = view.frame
@@ -69,11 +71,15 @@ extension MasonTurnViewController: PredictorDelegate {
 //        }
         if action == "left" {
             print("left !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            classifier = "left"
         }else if action == "right"{
             print("right!!!!!!!!")
+            classifier = "right"
         }else{
             print("none")
+            classifier = "none"
         }
+        scanbody = true
     }
 
     func predictor(_ predictor: RunPredictor, didFindNewRecognizedPoints points: [CGPoint]) {

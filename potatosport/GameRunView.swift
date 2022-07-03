@@ -42,6 +42,8 @@ struct GameRunView:View{
     
     @EnvironmentObject var gameConnect : gameConnectViewModel
     
+    @EnvironmentObject var musicControl:musicControl
+    
     //取得場景物件
     var scene = SCNScene(named: "Game.scn")
     var cameraNode:SCNNode?{
@@ -144,6 +146,7 @@ struct GameRunView:View{
                                         self.InitPos()
                                         self.UpdatePos()
                                         self.gameConnect.gameClock()
+                                        self.musicControl.gameBgm()
                                     }
                                     
                                 }
@@ -221,16 +224,22 @@ struct GameRunView:View{
         }
         func UpdatePos() {
             
-            
+            var tTimer = 0
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
                 // Your function here
+                tTimer += 1
                 print("UpdatePos",pos,self.gameConnect.gameState)
                 if pos < -3 {
                     self.finish = true
+                    self.musicControl.finish()
+                    tTimer = 30
                     SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:-3.0)
-                    timer.invalidate()
+                    
                 }else{
                     SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:pos)
+                }
+                if tTimer >= 30 {
+                    timer.invalidate()
                 }
            
             })

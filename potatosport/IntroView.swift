@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IntroView:View{
+    @EnvironmentObject var roomConnect: roomsConnetModel
     @EnvironmentObject var gameConnect : gameConnectViewModel
 //    @Binding var GameState:Int
     var body: some View{
@@ -17,9 +18,16 @@ struct IntroView:View{
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             ZStack(alignment:.bottom){
-                Image("intro_content")
-                    .resizable()
-                    .frame(width: 598, height:323 )
+                if roomConnect.mode == "mode1"{
+                    Image("intro_content")
+                        .resizable()
+                        .frame(width: 598, height:323 )
+                }
+                else{
+                    Image("masonIntro")
+                        .resizable()
+                        .frame(width: 598, height:323 )
+                }
                 Button(action: {
                     self.gameConnect.gameState = 1
                 }, label: {

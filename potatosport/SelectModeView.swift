@@ -9,6 +9,7 @@ import SwiftUI
 struct SelectmodeView: View {
     @Binding var showSelectmodeView:Bool
     @EnvironmentObject var roomConnectViewModel:roomsConnetModel
+    @EnvironmentObject var musicControl:musicControl
     
     var body: some View {
         ZStack{
@@ -37,12 +38,14 @@ struct SelectmodeView: View {
                             Button(action: {
                                 self.roomConnectViewModel.mode = "mode1"
                                 print(self.roomConnectViewModel.mode)
+                                self.musicControl.btnClickPlay()
                             }, label: {
                                 ButtonView(button: Btn(name: "吃雞", width: 78, height: 40,fontsize:16))
                             })
                             Button(action: {
                                 self.roomConnectViewModel.mode = "mode2"
                                 print(self.roomConnectViewModel.mode)
+                                self.musicControl.btnClickPlay()
                             }, label: {
                                 ButtonView(button: Btn(name: "對戰", width: 78, height: 40,fontsize:16))
                             })

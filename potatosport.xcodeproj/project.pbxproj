@@ -16,6 +16,10 @@
 		6F5EC508286372120042BC0F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC507286372120042BC0F /* FirebaseFirestore */; };
 		6F5EC50A286372120042BC0F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC509286372120042BC0F /* FirebaseFirestoreSwift */; };
 		6F5EC50C286372120042BC0F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6F5EC50B286372120042BC0F /* FirebaseStorage */; };
+		D97D78D828718C460003F8D7 /* finish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78D728718C460003F8D7 /* finish.mp3 */; };
+		D97D78DE28718C770003F8D7 /* main_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78DB28718C770003F8D7 /* main_bgm.mp3 */; };
+		D97D78DF28718C770003F8D7 /* game_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78DC28718C770003F8D7 /* game_bgm.mp3 */; };
+		D97D78E028718C770003F8D7 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D97D78DD28718C770003F8D7 /* win.mp3 */; };
 		D97EFFD128707DFD00438F54 /* comicSkyBox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */; };
 		D97EFFD228707DFD00438F54 /* fence.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC628707DF900438F54 /* fence.dae */; };
 		D97EFFD328707DFD00438F54 /* ghost.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFC728707DF900438F54 /* ghost.dae */; };
@@ -28,6 +32,8 @@
 		D97EFFDA28707DFD00438F54 /* cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCE28707DFD00438F54 /* cloth.png */; };
 		D97EFFDB28707DFD00438F54 /* ballDiffuse.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFCF28707DFD00438F54 /* ballDiffuse.jpeg */; };
 		D97EFFDC28707DFD00438F54 /* tree.dae in Resources */ = {isa = PBXBuildFile; fileRef = D97EFFD028707DFD00438F54 /* tree.dae */; };
+		D97EFFDE2870C11000438F54 /* GameMasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97EFFDD2870C11000438F54 /* GameMasonView.swift */; };
+		D97EFFE02870D3D300438F54 /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97EFFDF2870D3D300438F54 /* PersonalView.swift */; };
 		D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C620285C84F100A34263 /* RunActionClassify.swift */; };
 		D981C623285C86C700A34263 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C622285C86C700A34263 /* VideoCapture.swift */; };
 		D981C627285CBCD100A34263 /* RunPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981C626285CBCD100A34263 /* RunPredictor.swift */; };
@@ -68,6 +74,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D97D78D728718C460003F8D7 /* finish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = finish.mp3; path = "../../tempsave/未命名檔案夾/finish.mp3"; sourceTree = "<group>"; };
+		D97D78DB28718C770003F8D7 /* main_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = main_bgm.mp3; path = "../../tempsave/未命名檔案夾/main_bgm.mp3"; sourceTree = "<group>"; };
+		D97D78DC28718C770003F8D7 /* game_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game_bgm.mp3; path = "../../tempsave/未命名檔案夾/game_bgm.mp3"; sourceTree = "<group>"; };
+		D97D78DD28718C770003F8D7 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = "../../tempsave/未命名檔案夾/win.mp3"; sourceTree = "<group>"; };
 		D97EFFC528707DF900438F54 /* comicSkyBox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = comicSkyBox.jpeg; path = ../../../tempsave/save/comicSkyBox.jpeg; sourceTree = "<group>"; };
 		D97EFFC628707DF900438F54 /* fence.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = fence.dae; path = ../../../tempsave/save/fence.dae; sourceTree = "<group>"; };
 		D97EFFC728707DF900438F54 /* ghost.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = ghost.dae; path = ../../../tempsave/save/ghost.dae; sourceTree = "<group>"; };
@@ -80,6 +90,8 @@
 		D97EFFCE28707DFD00438F54 /* cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloth.png; path = ../../../tempsave/save/cloth.png; sourceTree = "<group>"; };
 		D97EFFCF28707DFD00438F54 /* ballDiffuse.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ballDiffuse.jpeg; path = ../../../tempsave/save/ballDiffuse.jpeg; sourceTree = "<group>"; };
 		D97EFFD028707DFD00438F54 /* tree.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = tree.dae; path = ../../../tempsave/save/tree.dae; sourceTree = "<group>"; };
+		D97EFFDD2870C11000438F54 /* GameMasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMasonView.swift; sourceTree = "<group>"; };
+		D97EFFDF2870D3D300438F54 /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
 		D981C620285C84F100A34263 /* RunActionClassify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActionClassify.swift; sourceTree = "<group>"; };
 		D981C622285C86C700A34263 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D981C626285CBCD100A34263 /* RunPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPredictor.swift; sourceTree = "<group>"; };
@@ -178,6 +190,10 @@
 		D993722D2852E7E7000D2397 /* potatosport */ = {
 			isa = PBXGroup;
 			children = (
+				D97D78DC28718C770003F8D7 /* game_bgm.mp3 */,
+				D97D78DB28718C770003F8D7 /* main_bgm.mp3 */,
+				D97D78DD28718C770003F8D7 /* win.mp3 */,
+				D97D78D728718C460003F8D7 /* finish.mp3 */,
 				D97EFFAC28707AD100438F54 /* art.scnassets */,
 				D98309FE286A187B00ACD623 /* MyActionClassifier 3.mlmodel */,
 				D98309EE286A154A00ACD623 /* turnAction_2.mlmodel */,
@@ -190,6 +206,7 @@
 				D99294BC286EDB74001F2DDA /* FinalView.swift */,
 				D9CC049A286638510081FA26 /* GameConnect.swift */,
 				D98309FC286A171700ACD623 /* GameRunView.swift */,
+				D97EFFDD2870C11000438F54 /* GameMasonView.swift */,
 				D99294BA286EDB57001F2DDA /* IntroView.swift */,
 				D98309F3286A15BE00ACD623 /* LoadingView.swift */,
 				D98309F0286A15BE00ACD623 /* MainView.swift */,
@@ -206,6 +223,7 @@
 				D981C622285C86C700A34263 /* VideoCapture.swift */,
 				D99372322852E7EB000D2397 /* Assets.xcassets */,
 				D99372342852E7EB000D2397 /* Preview Content */,
+				D97EFFDF2870D3D300438F54 /* PersonalView.swift */,
 			);
 			path = potatosport;
 			sourceTree = "<group>";
@@ -310,9 +328,13 @@
 				D97EFFD928707DFD00438F54 /* skybox.png in Resources */,
 				D97EFFDB28707DFD00438F54 /* ballDiffuse.jpeg in Resources */,
 				D981C67128621AF400A34263 /* GoogleService-Info.plist in Resources */,
+				D97D78DF28718C770003F8D7 /* game_bgm.mp3 in Resources */,
+				D97D78D828718C460003F8D7 /* finish.mp3 in Resources */,
 				D97EFFDC28707DFD00438F54 /* tree.dae in Resources */,
 				D97EFFD728707DFD00438F54 /* Game.scn in Resources */,
+				D97D78E028718C770003F8D7 /* win.mp3 in Resources */,
 				D97EFFD328707DFD00438F54 /* ghost.dae in Resources */,
+				D97D78DE28718C770003F8D7 /* main_bgm.mp3 in Resources */,
 				D97EFFD428707DFD00438F54 /* player.dae in Resources */,
 				D97EFFD828707DFD00438F54 /* thicket.dae in Resources */,
 				D97EFFD128707DFD00438F54 /* comicSkyBox.jpeg in Resources */,
@@ -336,11 +358,13 @@
 				D981C67328621AF400A34263 /* TextIndexView.swift in Sources */,
 				D982B2112868EE5E00AC9D95 /* MasonTurnActionView.swift in Sources */,
 				D9CC04992864BF3A0081FA26 /* friendConnect.swift in Sources */,
+				D97EFFE02870D3D300438F54 /* PersonalView.swift in Sources */,
 				D99372312852E7E7000D2397 /* ContentView.swift in Sources */,
 				D981C621285C84F100A34263 /* RunActionClassify.swift in Sources */,
 				D98309F5286A15BE00ACD623 /* MainView.swift in Sources */,
 				D981C67C2863749400A34263 /* RoomsConnect.swift in Sources */,
 				D98309FF286A187B00ACD623 /* MyActionClassifier 3.mlmodel in Sources */,
+				D97EFFDE2870C11000438F54 /* GameMasonView.swift in Sources */,
 				D99294BD286EDB74001F2DDA /* FinalView.swift in Sources */,
 				D981C67D2863749400A34263 /* AuthConnect.swift in Sources */,
 				D981C67028621AF400A34263 /* SignInView.swift in Sources */,

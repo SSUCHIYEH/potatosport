@@ -11,7 +11,7 @@ class gameConnectViewModel: ObservableObject{
     @Published var users = [String: UserPlayer]()
     @Published var roomId = ""
     @Published var myId = ""
-    @Published var time = 30
+    @Published var time = 10
     @Published var reward = [String: Any]()
     @Published var gameState = 0
     @Published var allReady = false
@@ -79,7 +79,7 @@ class gameConnectViewModel: ObservableObject{
             }
             if(self.time == 0){
                 self.gameState = 5
-                print("時間到",self.gameState)
+                self.time = 30
                 timer.invalidate()
             }
         })
@@ -111,12 +111,16 @@ class gameConnectViewModel: ObservableObject{
         }
     }
     
-    func reserGameInfo(){
-        self.point = 0
+    func resetGameInfo(){
+        self.allReady = false
+        self.gameState = 0
         self.users = [String: UserPlayer]()
         self.roomId = ""
         self.time = 0
-        self.reward = [String: Any]()
+        self.single = false
+        self.frUserPos = 0
+        self.myId = ""
+        self.players = 0
     }
     
     func setFakerReady() {

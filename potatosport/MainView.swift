@@ -20,6 +20,8 @@ struct invitedToFriendRoom {
 
 struct MainView: View {
     //  Auth資訊
+    @State private var personalPage = false
+    
     @EnvironmentObject var authViewModel:AppAuthViewModel
     //  配對房間資訊
     @EnvironmentObject var roomConnectViewModel:roomsConnetModel
@@ -40,6 +42,7 @@ struct MainView: View {
     @State private var invitedInfo = invitedToFriendRoom(leaderId: "", inviteRoomId: "", leaderName: "")
     
     @State private var initedAlert = false
+    
     
     
     func initObserve(){
@@ -143,7 +146,7 @@ struct MainView: View {
                     .offset(x: 0, y: 20)
             }
   
-            MainUIView(showAddFriendView: self.$showAddFriendView, showSelectmodeView:self.$showSelectmodeView)
+            MainUIView(personalPage:self.$personalPage, showAddFriendView: self.$showAddFriendView, showSelectmodeView:self.$showSelectmodeView)
 
             if self.showAddFriendView{
                 AddFriendView(showAddFriendView: self.$showAddFriendView)
@@ -155,10 +158,14 @@ struct MainView: View {
             if self.roomConnectViewModel.hasRoom && self.roomConnectViewModel.fill != true {
                     LoadingView()
             }
+            if self.personalPage {
+                PersonalView(showBackBtn: $personalPage)
+            }
             
         }
         .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
         .onAppear{
+            self.playerControl.mainBgm()
             self.roomConnectViewModel.initSetSelfPlayer(myId: authViewModel.userId, userName: authViewModel.userName)
             self.friendConnectViewModel.initSetFriend(myId: authViewModel.userId, myName: authViewModel.userName)
             self.initObserve()
@@ -184,6 +191,7 @@ struct MainView: View {
     }
 }
 struct MainUIView: View {
+    @Binding var personalPage: Bool
     @Binding var showAddFriendView:Bool
     @Binding var showSelectmodeView:Bool
 //    @Binding var isPlaying:Bool
@@ -203,10 +211,15 @@ struct MainUIView: View {
         HStack(alignment:.top, spacing:50){
             VStack{
                 HStack{}.frame(height:3)
-                ZStack(alignment: .center){
-                    Image("main_userButton")
-                    Text(authViewModel.userName).foregroundColor(Color("dark")).tracking(2).fontWeight(.regular).offset(x: 0, y: -3)
-                }
+                Button(action: {
+                    self.personalPage = true
+                }, label: {
+                    ZStack(alignment: .center){
+                        Image("main_userButton")
+                        Text(authViewModel.userName).foregroundColor(Color("dark")).tracking(2).fontWeight(.regular).offset(x: 0, y: -3)
+                    }
+                })
+                
                 Spacer()
                 HStack{
                     //HStack{}.frame(width:24)
@@ -266,15 +279,19 @@ struct MainUIView: View {
                         
                     })
                     Button(action: {
-                        if friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom {
-                            self.roomConnectViewModel.selfPlyaers = self.friendConnectViewModel.selfPlyaers
-                            self.roomConnectViewModel.searchRoom()
-                        }
-                        else if friendConnectViewModel.isLeader && roomConnectViewModel.hasRoom{
-                            self.roomConnectViewModel.outRoom()
-                        }
-                        else if !friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom{
-                            self.friendConnectViewModel.exitFriendRoom(getOut: false)
+                        if self.roomConnectViewModel.mode == "mode2" {
+                            self.roomConnectViewModel.isPlaying = true
+                        } else{
+                            if friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom {
+                                self.roomConnectViewModel.selfPlyaers = self.friendConnectViewModel.selfPlyaers
+                                self.roomConnectViewModel.searchRoom()
+                            }
+                            else if friendConnectViewModel.isLeader && roomConnectViewModel.hasRoom{
+                                self.roomConnectViewModel.outRoom()
+                            }
+                            else if !friendConnectViewModel.isLeader && !roomConnectViewModel.hasRoom{
+                                self.friendConnectViewModel.exitFriendRoom(getOut: false)
+                            }
                         }
                        
                     }, label: {
