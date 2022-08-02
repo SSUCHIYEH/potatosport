@@ -24,8 +24,8 @@ struct ContentView: View {
                if authViewModel.signedIn {
                    if rooomConnectModel.isPlaying{
                        if self.rooomConnectModel.mode == "mode1"{
-                           GameRunTestView()
-//                           GameRunView()
+//                           GameRunTestView()
+                           GameRunView()
                        }else{
                            GameMasonView()
                        }

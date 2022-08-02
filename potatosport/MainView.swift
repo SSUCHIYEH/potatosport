@@ -159,7 +159,8 @@ struct MainView: View {
                     LoadingView()
             }
             if self.personalPage {
-                PersonalView(showBackBtn: $personalPage)
+//                PersonalView(showBackBtn: $personalPage)
+                PersonalView()
             }
             
         }

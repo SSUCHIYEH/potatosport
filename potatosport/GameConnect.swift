@@ -50,6 +50,7 @@ class gameConnectViewModel: ObservableObject{
     
     func setReady(){
         var ref = Database.database().reference()
+        print("readyP",self.readyP)
         ref.child("rooms").child(self.roomId).updateChildValues([
             "users/\(self.myId)/ready":true,
             "allReady" : self.readyP + 1
@@ -58,6 +59,7 @@ class gameConnectViewModel: ObservableObject{
             print("single")
             self.setFakerReady()
         }
+        
     }
     
     // 增加分數
@@ -73,7 +75,7 @@ class gameConnectViewModel: ObservableObject{
             // Your function here
             self.time -= 1
             if self.single {
-                if(self.time % 4 == 0){
+                if(self.time % 1 == 0){
                     self.setFakerPos()
                 }
             }
@@ -132,12 +134,13 @@ class gameConnectViewModel: ObservableObject{
     }
     
     func setFakerPos() {
-        var ref = Database.database().reference()
-        if self.frUserPos > -2{
-            ref.child("rooms").child(self.roomId).child("users").child("fakePlayer").updateChildValues([
-                "point": self.frUserPos - 0.2
-            ])
-        }
+//        var ref = Database.database().reference()
+//        if self.frUserPos > -2{
+//            ref.child("rooms").child(self.roomId).child("users").child("fakePlayer").updateChildValues([
+//                "point": self.frUserPos - 0.2
+//            ])
+//        }
+        self.frUserPos -= 0.15
     }
     
 }

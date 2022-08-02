@@ -4,7 +4,7 @@ import SceneKit
 struct GameRunTestView:View{
 
     @EnvironmentObject var musicControl: musicControl
-    @EnvironmentObject var roomConnect: roomsConnetModel
+    @EnvironmentObject var roomConnetModel: roomsConnetModel
     @EnvironmentObject var gameConnect:gameConnectViewModel
     @State private var show3:Bool = true
     @State private var show2:Bool = false
@@ -20,6 +20,9 @@ struct GameRunTestView:View{
     var SphereNode:SCNNode?{
         scene?.rootNode.childNode(withName: "player", recursively: false)
     }
+//    var SphereNodeFr:SCNNode?{
+//        scene?.rootNode.childNode(withName: "player1", recursively: false)
+//    }
     
     var body: some View{
         ZStack{
@@ -57,7 +60,7 @@ struct GameRunTestView:View{
                             .cornerRadius(10)
                             .onAppear{
                                 DispatchQueue.main.asyncAfter(deadline:.now()+5){
-                                    gameConnect.gameState = 4
+                                    self.gameConnect.setReady()
                                     print("switch state to \(self.gameConnect.gameState)")
                                 }
                             }
@@ -136,7 +139,14 @@ struct GameRunTestView:View{
                 FinalView()
             }
         }.onAppear{
+            self.roomConnetModel.removeRoomObserve()
+            self.gameConnect.roomId = self.roomConnetModel.roomId
+            self.gameConnect.myId = self.roomConnetModel.myId
+            if self.roomConnetModel.selfPlyaers.count < 2 {
+                self.gameConnect.single = true
+            }
             self.CheckGameState()
+            self.gameConnect.observeGamePoint()
             musicControl.mainbg.pause()
         }
         

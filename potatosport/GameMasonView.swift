@@ -70,7 +70,6 @@ struct GameMasonView:View{
                             .cornerRadius(10)
                             .onAppear{
                                 DispatchQueue.main.asyncAfter(deadline:.now()+5){
-                                    self.gameConnect.gameState = 4
                                     print("switch state to \(gameConnect.gameState)")
                                 }
                             }

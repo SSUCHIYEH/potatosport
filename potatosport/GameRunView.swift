@@ -38,9 +38,9 @@ struct GameRunView:View{
     var SphereNode:SCNNode?{
         scene?.rootNode.childNode(withName: "player", recursively: false)
     }
-//    var SphereNodeFr:SCNNode?{
-//        scene?.rootNode.childNode(withName: "player1", recursively: false)
-//    }
+    var SphereNodeFr:SCNNode?{
+        scene?.rootNode.childNode(withName: "player1", recursively: false)
+    }
     
     var body: some View{
         ZStack{
@@ -50,7 +50,7 @@ struct GameRunView:View{
             if self.gameConnect.gameState == 5{
                 FinalView()
             }
-            if self.gameConnect.gameState != 5 && self.gameConnect.gameState != 0 {
+            if self.gameConnect.gameState != 5 && self.gameConnect.gameState != 0 && self.gameConnect.gameState != 4 {
                 ZStack(alignment: .center){
                     RunActionView()
                     if self.gameConnect.gameState == 1{
@@ -81,90 +81,91 @@ struct GameRunView:View{
                             .cornerRadius(10)
                             .onAppear{
                                 DispatchQueue.main.asyncAfter(deadline:.now()+5){
+//                                    self.gameConnect.setReady()
                                     self.gameConnect.gameState = 4
                                     print("switch state to \(gameConnect.gameState)")
                                 }
                             }
                     }
-                    if self.gameConnect.gameState == 4{
-                        ZStack{
-                            SceneView(
-                                scene:scene,
-                                pointOfView:cameraNode,
-                                options:[.allowsCameraControl]
-                            ).frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-                            if self.show3{
-                                Image("game_3")
-                                    .onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline:.now()+1){
-                                        self.show3 = false
-                                        self.show2 = true
-                                    }
-                                    
-                                }
-                            }
-                            if self.show2{
-                                Image("game_2")
-                                .onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline:.now()+1){
-                                        self.show2 = false
-                                        self.show1 = true
-                                    }
-                                    
-                                }
-                            }
-                            if self.show1{
-                                Image("game_1")
-                                .onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline:.now()+1){
-                                        self.show1 = false
-                                        self.showstart = true
-                                    }
-                                    
-                                }
-                            }
-                            if self.showstart{
-                                Image("game_start")
-                                .onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline:.now()+1){
-                                        self.showstart = false
-                                        startgame = true
-                                        self.InitPos()
-                                        self.UpdatePos()
-                                        self.gameConnect.gameClock()
-                                        self.musicControl.gameBgm()
-                                    }
-                                    
-                                }
-                            }
-                            if startgame == true {
-                                if finish {
-                                    StrokeText(text: "抵達終點", width: 5, borderColor: Color.white, fontColor: Color("yellow_main"))
-                                }else{
-                                    StrokeText(text: String(self.gameConnect.time), width: 5, borderColor: Color.white, fontColor: Color("yellow_main"))
-                                }
-                                    
-                                    
+                }
+            }
+            if self.gameConnect.gameState == 4{
+                ZStack{
+                    SceneView(
+                        scene:scene,
+                        pointOfView:cameraNode,
+                        options:[.allowsCameraControl]
+                    ).frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+                    if self.show3{
+                        Image("game_3")
+                            .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline:.now()+1){
+                                self.show3 = false
+                                self.show2 = true
                             }
                             
-                                
                         }
-                        
                     }
+                    if self.show2{
+                        Image("game_2")
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline:.now()+1){
+                                self.show2 = false
+                                self.show1 = true
+                            }
+                            
+                        }
+                    }
+                    if self.show1{
+                        Image("game_1")
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline:.now()+1){
+                                self.show1 = false
+                                self.showstart = true
+                            }
+                            
+                        }
+                    }
+                    if self.showstart{
+                        Image("game_start")
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline:.now()+1){
+                                self.showstart = false
+                                startgame = true
+                                self.InitPos()
+                                self.UpdatePos()
+                                self.gameConnect.gameClock()
+                                self.musicControl.gameBgm()
+                            }
+                            
+                        }
+                    }
+                    if startgame == true {
+                        if finish {
+                            StrokeText(text: "抵達終點", width: 5, borderColor: Color.white, fontColor: Color("yellow_main"))
+                        }else{
+                            StrokeText(text: String(self.gameConnect.time), width: 5, borderColor: Color.white, fontColor: Color("yellow_main"))
+                        }
+                            
+                            
+                    }
+                    
+                        
                 }
+                
             }
             
         }.onAppear{
-//            var ref = Database.database().reference()
-//            ref.child("rooms").removeAllObservers()
+            self.roomConnetModel.removeRoomObserve()
             self.gameConnect.roomId = self.roomConnetModel.roomId
             self.gameConnect.myId = self.roomConnetModel.myId
             // 是不是單人玩
             if self.roomConnetModel.selfPlyaers.count < 2 {
                 self.gameConnect.single = true
             }
-//            self.gameConnect.observeGamePoint()
+            self.gameConnect.observeGamePoint()
             self.CheckGameState()
+            musicControl.mainbg.pause()
         }
         
     }
@@ -207,39 +208,46 @@ struct GameRunView:View{
         func InitPos(){
             print("-----> 設定初始位置")
             SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:0)
+            SphereNodeFr?.position = SCNVector3(x:1.67,y: 0,z: 0)
         }
         func UpdatePos() {
             
-            var tTimer = 0
-            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-                // Your function here
-                tTimer += 1
-                print("UpdatePos",pos,self.gameConnect.gameState)
+//            var tTimer = 0
+//            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+//                // Your function here
+//                tTimer += 1
+//                print("UpdatePos",pos)
+//                if pos < -3 {
+//                    self.finish = true
+//                    self.musicControl.finish()
+//                    tTimer = 30
+//                    SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:-3.0)
+//
+//                }else{
+//                    SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:pos)
+//                }
+//                SphereNodeFr?.position = SCNVector3(x:1.67,y:0.0,z:self.gameConnect.frUserPos)
+//                if tTimer >= 30 {
+//                    timer.invalidate()
+//                }
+//
+//            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                //print("-----> UpdatePos")
                 if pos < -3 {
                     self.finish = true
                     self.musicControl.finish()
-                    tTimer = 30
-                    SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:-3.0)
-                    
-                }else{
-                    SphereNode?.position = SCNVector3(x:-0.632,y:0.0,z:pos)
-                }
-                if tTimer >= 30 {
-                    timer.invalidate()
-                }
-           
-            })
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                //print("-----> UpdatePos")
-//                if pos < -3 {
-//                    self.finish = true
 //                    SphereNode?.position = SCNVector3(-0.632,0,-3)
-//                }else{
-//                    SphereNode?.position = SCNVector3(-0.632,0,pos)
-//                    UpdatePos()
-//                }
-//
-//            }
+                }else{
+                    pos-=0.08
+                    print(pos)
+                    SphereNode?.position = SCNVector3(-0.632,0,pos)
+                    SphereNodeFr?.position = SCNVector3(1.67,0,self.gameConnect.frUserPos)
+                    self.gameConnect.addPoint(posZ: pos)
+                    UpdatePos()
+                }
+
+            }
         }
 }
 
