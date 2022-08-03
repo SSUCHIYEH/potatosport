@@ -31,6 +31,25 @@ struct GameRunView:View{
     var SphereNode:SCNNode?{
         scene?.rootNode.childNode(withName: "player", recursively: false)
     }
+    var GhostNode:SCNNode?{
+        scene?.rootNode.childNode(withName: "ghost", recursively: false)
+    }
+    var Player_leftLegNode:SCNNode?{
+        SphereNode?.childNode(withName: "LeftLeg", recursively:false)
+    }
+    var Player_rightLegNode:SCNNode?{
+        SphereNode?.childNode(withName: "RightLeg", recursively:false)
+    }
+    var Player_leftHandNode:SCNNode?{
+        SphereNode?.childNode(withName: "LeftHand", recursively:false)
+    }
+    var Player_rightHandNode:SCNNode?{
+        SphereNode?.childNode(withName: "RightHand", recursively:false)
+    }
+    var Player_bodyNode:SCNNode?{
+        SphereNode?.childNode(withName: "Body", recursively:false)
+    }
+    
     
     var body: some View{
         ZStack{
@@ -118,6 +137,8 @@ struct GameRunView:View{
                                         startgame = true
                                         self.InitPos()
                                         self.UpdatePos()
+                                        self.UpdateGhost()
+                                        //self.RunAnimate()
                                     }
                                     
                                 }
@@ -166,6 +187,75 @@ struct GameRunView:View{
                 self.GameState = 5
             }
             UpdatePos()
+        }
+    }
+    func UpdateGhost(){
+        let Turnnumber = Int.random(in: 1...6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Turnnumber)){
+            let Backnumber = Int.random(in: 1...4)
+            let actionTurn = SCNAction.rotateBy(x: 0, y: 3, z: 0, duration: 0.5)
+            actionTurn.timingMode = .easeInEaseOut
+            let actionBack = SCNAction.rotateBy(x: 0, y: -3, z: 0, duration: 0.5)
+            actionBack.timingMode = .easeInEaseOut
+            GhostNode?.runAction(actionTurn)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Backnumber)){
+                GhostNode?.runAction(actionBack)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                    RunAnimate()
+                }
+            }
+            UpdateGhost()
+        }
+        
+    }
+    func RunAnimate(){
+        let action_legrun_front = SCNAction.rotateBy(x: 2, y: 0, z: 0, duration: 0.375)
+        action_legrun_front.timingMode = .easeInEaseOut
+        let action_legrun_back = SCNAction.rotateBy(x: -2, y: 0, z: 0, duration: 0.375)
+        action_legrun_back.timingMode = .easeInEaseOut
+        let action_handrun_front = SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 0.4)
+        action_handrun_front.timingMode = .easeInEaseOut
+        let action_handrun_back = SCNAction.rotateBy(x: 0, y: -2, z: 0, duration: 0.4)
+        action_handrun_back.timingMode = .easeInEaseOut
+        let action_body_front = SCNAction.rotateBy(x: 0, y: 0.8, z: 0, duration: 0.4)
+        action_body_front.timingMode = .easeInEaseOut
+        let action_body_back = SCNAction.rotateBy(x: 0, y: -0.8, z: 0, duration: 0.4)
+        action_body_back.timingMode = .easeInEaseOut
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8){
+            //if running == true{
+                Player_leftLegNode?.runAction(action_legrun_back)
+                Player_rightLegNode?.runAction(action_legrun_front)
+                Player_rightHandNode?.runAction(action_legrun_front)
+                Player_leftHandNode?.runAction(action_legrun_back)
+                Player_bodyNode?.runAction(action_body_front)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4){
+                    Player_leftLegNode?.runAction(action_legrun_front)
+                    Player_rightLegNode?.runAction(action_legrun_back)
+                    Player_rightHandNode?.runAction(action_legrun_back)
+                    Player_leftHandNode?.runAction(action_legrun_front)
+                    Player_bodyNode?.runAction(action_body_back)
+                }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4){
+//            Player_leftLegNode?.runAction(action_legrun_back)
+//            Player_rightLegNode?.runAction(action_legrun_front)
+//            Player_rightHandNode?.runAction(action_legrun_front)
+//            Player_leftHandNode?.runAction(action_legrun_back)
+//            Player_bodyNode?.runAction(action_body_front)
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4){
+//            Player_leftLegNode?.runAction(action_legrun_front)
+//            Player_rightLegNode?.runAction(action_legrun_back)
+//            Player_rightHandNode?.runAction(action_legrun_back)
+//            Player_leftHandNode?.runAction(action_legrun_front)
+//            Player_bodyNode?.runAction(action_body_back)
+//        }
+        
+           // }
+            
+            
+            //RunAnimate()
         }
     }
 }

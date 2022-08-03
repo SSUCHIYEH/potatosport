@@ -76,12 +76,13 @@ extension RunActionViewController: PredictorDelegate {
         if action == "run" {
             running = true
             if startgame{
-              pos=pos-0.1
+              pos=pos-0.3
             }
             print("run!!!!!!!!!!!!!")
             
         }else{
             print("none")
+            running = false
             scanbody = true
         }
     }

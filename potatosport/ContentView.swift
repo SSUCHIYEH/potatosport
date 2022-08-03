@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isPlaying = true
+    @State private var isPlaying = false
     var body: some View {
         
         if isPlaying{
